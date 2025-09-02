@@ -1,7 +1,9 @@
-package br.pucrs.totem.entity;
+package br.pucrs.totem.dto;
 
 import jakarta.persistence.*;
 import java.util.Objects;
+
+import br.pucrs.totem.entity.Map;
 
 @Entity
 @Table(name = "routes")
@@ -21,11 +23,11 @@ public class RouteEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "map_id")
-    private MapEntity map;
+    private Map map;
 
     public RouteEntity() {}
 
-    public RouteEntity(Long id, String origin, String destination, String pathData, MapEntity map) {
+    public RouteEntity(Long id, String origin, String destination, String pathData, Map map) {
         this.id = id;
         this.origin = origin;
         this.destination = destination;
@@ -45,8 +47,8 @@ public class RouteEntity {
     public String getPathData() { return pathData; }
     public void setPathData(String pathData) { this.pathData = pathData; }
 
-    public MapEntity getMap() { return map; }
-    public void setMap(MapEntity map) { this.map = map; }
+    public Map getMap() { return map; }
+    public void setMap(Map map) { this.map = map; }
 
     @Override
     public boolean equals(Object o) {
