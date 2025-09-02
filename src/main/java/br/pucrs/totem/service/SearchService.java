@@ -1,6 +1,6 @@
 package br.pucrs.totem.service;
 
-import br.pucrs.totem.entity.MapEntity;
+import br.pucrs.totem.entity_old.MapEntity;
 import br.pucrs.totem.service.MapRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

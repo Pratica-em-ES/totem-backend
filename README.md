@@ -26,6 +26,10 @@ API desenvolvida em Spring Boot para gerenciamento de tokens, rotas, mapas e rel
 	  ```
 	  ./mvnw spring-boot:run
 	  ```
+4. Acesse a aplicação - Exemplo para /maps
+   ```
+   localhost:8080/maps/
+   ```
 
 ## Configuração do Banco de Dados
 Edite o arquivo `src/main/resources/application.properties` para configurar o acesso ao banco PostgreSQL, por exemplo:

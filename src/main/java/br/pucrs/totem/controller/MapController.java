@@ -1,28 +1,41 @@
 package br.pucrs.totem.controller;
 
-import br.pucrs.totem.dto.MapDto;
-import br.pucrs.totem.service.MapService;
+import br.pucrs.totem.dto.MapDTO;
+import br.pucrs.totem.entity_old.MapModel;
+import br.pucrs.totem.repository.MapRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
-@RequestMapping("/maps")
+@RequestMapping("/map")
 public class MapController {
 
-    @Autowired
-    private MapService mapService;
+    private final MapService mapService;
 
-    @GetMapping
-    public List<MapDto> getAllMaps() {
-        return mapService.getAllMaps();
+    public MapController(MapService mapService) {
+        this.mapService = mapService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<MapDto> getMapById(@PathVariable Long id) {
-        return mapService.getMapById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    @GetMapping()
+    public ResponseEntity<MapDTO> getMap() {
+        System.out.println("Fetching map");
+        MapModel map = mapService.getMap();
+        if (map == null) {
+            System.out.println("Map not found");
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(MapDTO.fromModel(map));
+        }
+
+        System.out.println("Map found: " + map.getID());
+        MapDTO response = new MapDTO();
+        response.setId(map.getID());
+        response.setBuildings(map.getBuildings());
+        response.setStreets(map.getStreets());
+
+        return ResponseEntity.ok(response);
     }
 }

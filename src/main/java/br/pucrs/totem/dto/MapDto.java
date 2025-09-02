@@ -1,24 +1,23 @@
 package br.pucrs.totem.dto;
 
-public class MapDto {
+public class MapDTO {
     private Long id;
-    private String name;
-    private String imageUrl;
+    private List<BuildingDTO> buildings;
+    private List<StreetDTO> streets;
 
-    public MapDto() {}
+    public MapDTO() {}
 
-    public MapDto(Long id, String name, String imageUrl) {
+    public MapDTO(Long id, List<BuildingDTO> buildings, List<StreetDTO> streets) {
         this.id = id;
-        this.name = name;
-        this.imageUrl = imageUrl;
+        this.buildings = buildings;
+        this.streets = streets;
     }
 
     public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public List<BuildingDTO> getBuildings() { return buildings; }
+    public void setBuildings(List<BuildingDTO> buildings) { this.buildings = buildings; }
 
-    public String getImageUrl() { return imageUrl; }
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+    public List<StreetDTO> getStreets() { return streets; }
+    public void setStreets(List<StreetDTO> streets) { this.streets = streets; }
 }
