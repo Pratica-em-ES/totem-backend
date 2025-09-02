@@ -1,6 +1,5 @@
 package br.pucrs.totem.controller;
 
-import br.pucrs.totem.entity.MapEntity;
 import br.pucrs.totem.service.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,11 +9,11 @@ import java.util.List;
 @RequestMapping("/search")
 public class SearchController {
 
-    @Autowired
-    private SearchService searchService;
+    // @Autowired
+    // private SearchService searchService;
 
-    @GetMapping
-    public List<MapEntity> searchMaps(@RequestParam String query) {
-        return searchService.searchMapsByName(query);
-    }
+    // @GetMapping
+    // public List<MapEntity> searchMaps(@RequestParam String query) {
+    //     return searchService.searchMapsByName(query);
+    // }
 }

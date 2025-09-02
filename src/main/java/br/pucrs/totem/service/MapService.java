@@ -1,7 +1,14 @@
 package br.pucrs.totem.service;
 
-import br.pucrs.totem.entity.MapEntity;
-import br.pucrs.totem.dto.MapDto;
+import br.pucrs.totem.dto.MapDTO;
+import br.pucrs.totem.entity.Building;
+import br.pucrs.totem.entity.Street;
+import br.pucrs.totem.repository.BuildingRepository;
+import br.pucrs.totem.repository.StreetRepository;
+import br.pucrs.totem.dto.BuildingDTO;
+import br.pucrs.totem.dto.CoordinateDTO;
+import br.pucrs.totem.dto.StreetDTO;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,20 +19,32 @@ import java.util.stream.Collectors;
 @Service
 public class MapService {
 
-    @Autowired
-    private MapRepository mapRepository;
+    private final BuildingRepository buildingRepository;
+    private final StreetRepository streetRepository;
 
-    public List<MapDto> getAllMaps() {
-        return mapRepository.findAll().stream()
-                .map(this::toDto)
-                .collect(Collectors.toList());
+    public MapService(BuildingRepository buildingRepository, StreetRepository streetRepository) {
+        this.buildingRepository = buildingRepository;
+        this.streetRepository = streetRepository;
     }
+    
+    public MapDTO getMap() {
+        List<Building> buildingsList = buildingRepository.findAll();
+        List<Street> streetsList = streetRepository.findAll();
 
-    public Optional<MapDto> getMapById(Long id) {
-        return mapRepository.findById(id).map(this::toDto);
-    }
+        List<BuildingDTO> buildings = buildingsList.stream()
+                .map(building -> new BuildingDTO(
+                        building.getName(),
+                        building.getModelPath(),
+                        building.getCoordinate()))
+                .toList();
 
-    public MapDto toDto(MapEntity entity) {
-        return new MapDto(entity.getId(), entity.getName(), entity.getImageUrl());
+        List<StreetDTO> streets = streetsList.stream()
+                .map(street -> new StreetDTO(
+                        street.getWidth(),
+                        new CoordinateDTO(street.getCoordinateA().getX(), street.getCoordinateA().getY()),
+                        new CoordinateDTO(street.getCoordinateB().getX(), street.getCoordinateB().getY())))
+                .toList();
+
+        return new MapDTO(buildings, streets);
     }
 }
