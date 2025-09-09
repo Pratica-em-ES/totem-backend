@@ -35,7 +35,10 @@ public class MapService {
                 .map(building -> new BuildingDTO(
                         building.getName(),
                         building.getModelPath(),
-                        building.getCoordinate()))
+                        new CoordinateDTO(
+                                building.getCoordinate().getX(),
+                                building.getCoordinate().getY()
+                        )))
                 .toList();
 
         List<StreetDTO> streets = streetsList.stream()
