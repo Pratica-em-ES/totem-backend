@@ -1,16 +1,15 @@
 package br.pucrs.totem.controller;
 
 import br.pucrs.totem.dto.MapDTO;
-import br.pucrs.totem.repository.BuildingRepository;
 import br.pucrs.totem.service.MapService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.HashMap;
-import java.util.Map;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/map")
+@Tag(name = "Maps", description = "Endpoints for managing maps")
 public class MapController {
 
     private final MapService mapService;
@@ -20,6 +19,7 @@ public class MapController {
     }
 
     @GetMapping()
+    @Operation(summary = "Get map", description = "Retrieve the map object")
     public ResponseEntity<MapDTO> getMap() {
         System.out.println("Fetching map");
         MapDTO map = mapService.getMap();
