@@ -41,14 +41,7 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 ## Endpoints principais
-- `POST /totem/reports` - Criar relatório
-- `POST /totem/routes` - Criar rota
-- `POST /totem/maps` - Criar mapa
-- `GET /totem/maps` - Listar mapas
-- `GET /totem/maps/{id}` - Buscar mapa por ID
-- `PATCH /totem/maps/{id}` - Atualizar mapa
-- `DELETE /totem/maps/{id}` - Remover mapa
-- `GET /totem/search?name=...` - Buscar expositores
+- `GET /map/` - Retorna o mapa com os prédios e com as ruas
 
 ## Autores
 Bernardo Nilson  
