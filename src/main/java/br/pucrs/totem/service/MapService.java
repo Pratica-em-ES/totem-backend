@@ -1,20 +1,17 @@
 package br.pucrs.totem.service;
 
-import br.pucrs.totem.dto.MapDTO;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import br.pucrs.totem.dto.BuildingDTO;
+import br.pucrs.totem.dto.CoordinateDTO;
+import br.pucrs.totem.dto.MapDto;
+import br.pucrs.totem.dto.StreetDTO;
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.Street;
 import br.pucrs.totem.repository.BuildingRepository;
 import br.pucrs.totem.repository.StreetRepository;
-import br.pucrs.totem.dto.BuildingDTO;
-import br.pucrs.totem.dto.CoordinateDTO;
-import br.pucrs.totem.dto.StreetDTO;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class MapService {
@@ -27,7 +24,7 @@ public class MapService {
         this.streetRepository = streetRepository;
     }
     
-    public MapDTO getMap() {
+    public MapDto getMap() {
         List<Building> buildingsList = buildingRepository.findAll();
         List<Street> streetsList = streetRepository.findAll();
 
@@ -45,6 +42,6 @@ public class MapService {
                         new CoordinateDTO(street.getCoordinateB().getX(), street.getCoordinateB().getY())))
                 .toList();
 
-        return new MapDTO(buildings, streets);
+        return new MapDto(buildings, streets);
     }
 }
