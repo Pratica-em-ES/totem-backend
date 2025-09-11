@@ -46,9 +46,6 @@ CREATE TABLE Predio_Rua (
     PRIMARY KEY (id_predio, id_rua, id_coordenada)
 );
 
-
-
-
 -- 1. Coordenada (base table)
 CREATE TABLE Coordenada (
     id SERIAL PRIMARY KEY,
