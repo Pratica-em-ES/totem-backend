@@ -10,6 +10,7 @@ import br.pucrs.totem.service.MapService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/map")
 @Tag(name = "Maps", description = "Endpoints for managing maps")

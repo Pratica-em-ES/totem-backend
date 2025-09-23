@@ -5,11 +5,11 @@ import br.pucrs.totem.entity.Coordinate;
 public class BuildingDTO {
     private String name;
     private String modelPath;
-    private Coordinate coordinate;
+    private CoordinateDTO coordinate;
 
     public BuildingDTO() {}
 
-    public BuildingDTO(String name, String modelPath, Coordinate coordinate) {
+    public BuildingDTO(String name, String modelPath, CoordinateDTO coordinate) {
         this.name = name;
         this.modelPath = modelPath;
         this.coordinate = coordinate;
@@ -31,11 +31,11 @@ public class BuildingDTO {
         this.modelPath = modelPath;
     }
 
-    public Coordinate getCoordinate() {
+    public CoordinateDTO getCoordinate() {
         return coordinate;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
+    public void setCoordinate(CoordinateDTO coordinate) {
         this.coordinate = coordinate;
     }
 }
