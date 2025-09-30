@@ -8,46 +8,27 @@ API desenvolvida em Spring Boot para gerenciamento de mapas, rotas e empresas do
 
 - Java 21 [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
 - PostgreSQL 17.6 [https://www.postgresql.org/download/](https://www.postgresql.org/download/)
+- Docker Desktop [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
-## Como rodar o projeto
+## Como executar
 
-1. Clone o repositório:
-	```
-	git clone <url-do-repositorio>
-	```
+1. Criar arquivo .env
 
-2. Entre na pasta do projeto:
-	```
-	cd totem-backend
-	```
-
-3. Iniciar Banco de Dados
-   
-Necessário estar configurado antes, veja o trecho "Configuração do Banco de Dados" 
-	```
-	net start postgresql-x64-17
-	```
-
-	Ou via Menu Iniciar do Windows
-
-1. Execute a aplicação:
-	```
-	./mvnw spring-boot:run
-	```
-
-2. Acesse a aplicação, você será direcionado ao endpoint de documentação
-   ```
-   localhost:8080
-   ```
-
-## Configuração do Banco de Dados
-
-Acesse `src\resources\application.properties` e altere os dados de acesso:
-
+```bash
+# dev usa H2 Database
+SPRING_PROFILES_ACTIVE=prod
+DATABASE_URL=jdbc:postgresql://<cloud_address>/postgres?user=<docker_user>&password=<password>
 ```
-spring.datasource.username=postgres
-spring.datasource.password=postgres
+
+2. Iniciar o Docker Desktop via Menu Iniciar. Você deve ver um "service is runnig"
+
+3. Executar usando o Docker
+
+```bash
+docker-compose up --build
 ```
+
+4. Acessar [[localhost](http://localhost:8080/)](http://localhost:8080/)
 
 ## Endpoints principais
 
