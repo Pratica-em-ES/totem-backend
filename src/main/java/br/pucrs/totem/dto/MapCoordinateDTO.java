@@ -1,24 +1,15 @@
 package br.pucrs.totem.dto;
 
-public class CoordinateDTO {
-    private Long id;
+public class MapCoordinateDTO {
     private Double x;
     private Double y;
 
-    public CoordinateDTO() {}
+    public MapCoordinateDTO() {
+    }
 
-    public CoordinateDTO(Long id, Double x, Double y) {
-        this.id = id;
+    public MapCoordinateDTO(Double x, Double y) {
         this.x = x;
         this.y = y;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Double getX() {

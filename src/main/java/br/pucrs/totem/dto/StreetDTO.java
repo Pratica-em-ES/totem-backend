@@ -1,16 +1,26 @@
 package br.pucrs.totem.dto;
 
 public class StreetDTO {
+    private Long id;
     private Double width;
-    private CoordinateDTO coordinateA;
-    private CoordinateDTO coordinateB;
+    private Long coordinateAId;
+    private Long coordinateBId;
 
     public StreetDTO() {}
 
-    public StreetDTO(Double width, CoordinateDTO coordinateA, CoordinateDTO coordinateB) {
+    public StreetDTO(Long id, Double width, Long coordinateAId, Long coordinateBId) {
+        this.id = id;
         this.width = width;
-        this.coordinateA = coordinateA;
-        this.coordinateB = coordinateB;
+        this.coordinateAId = coordinateAId;
+        this.coordinateBId = coordinateBId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Double getWidth() {
@@ -21,19 +31,19 @@ public class StreetDTO {
         this.width = width;
     }
 
-    public CoordinateDTO getCoordinateA() {
-        return coordinateA;
+    public Long getCoordinateAId() {
+        return coordinateAId;
     }
 
-    public void setCoordinateA(CoordinateDTO coordinateA) {
-        this.coordinateA = coordinateA;
+    public void setCoordinateAId(Long coordinateAId) {
+        this.coordinateAId = coordinateAId;
     }
 
-    public CoordinateDTO getCoordinateB() {
-        return coordinateB;
+    public Long getCoordinateBId() {
+        return coordinateBId;
     }
 
-    public void setCoordinateB(CoordinateDTO coordinateB) {
-        this.coordinateB = coordinateB;
+    public void setCoordinateBId(Long coordinateBId) {
+        this.coordinateBId = coordinateBId;
     }
 }
