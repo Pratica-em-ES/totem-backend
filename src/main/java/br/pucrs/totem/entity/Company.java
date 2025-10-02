@@ -7,10 +7,13 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 500)
     private String name;
+    @Column(length = 100)
     private String category;
+    @Column(length = 2000)
     private String description;
-    private String localization;
+    @Column(length = 50)
     private String building;
     
     public Long getId() {
@@ -43,14 +46,6 @@ public class Company {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getLocalization() {
-        return localization;
-    }
-
-    public void setLocalization(String localization) {
-        this.localization = localization;
     }
 
     public String getBuilding() {

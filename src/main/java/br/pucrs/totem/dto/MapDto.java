@@ -2,13 +2,13 @@ package br.pucrs.totem.dto;
 
 import java.util.List;
 
-public class MapDto {
+public class MapDTO {
     private List<BuildingDTO> buildings;
     private List<StreetDTO> streets;
 
-    public MapDto() {}
+    public MapDTO() {}
 
-    public MapDto(List<BuildingDTO> buildings, List<StreetDTO> streets) {
+    public MapDTO(List<BuildingDTO> buildings, List<StreetDTO> streets) {
         this.buildings = buildings;
         this.streets = streets;
     }

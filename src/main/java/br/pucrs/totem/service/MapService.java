@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import br.pucrs.totem.dto.BuildingDTO;
 import br.pucrs.totem.dto.CoordinateDTO;
-import br.pucrs.totem.dto.MapDto;
+import br.pucrs.totem.dto.MapDTO;
 import br.pucrs.totem.dto.StreetDTO;
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.Street;
@@ -24,7 +24,7 @@ public class MapService {
         this.streetRepository = streetRepository;
     }
     
-    public MapDto getMap() {
+    public MapDTO getMap() {
         List<Building> buildingsList = buildingRepository.findAll();
         List<Street> streetsList = streetRepository.findAll();
 
@@ -45,6 +45,6 @@ public class MapService {
                         new CoordinateDTO(street.getCoordinateB().getX(), street.getCoordinateB().getY())))
                 .toList();
 
-        return new MapDto(buildings, streets);
+        return new MapDTO(buildings, streets);
     }
 }
