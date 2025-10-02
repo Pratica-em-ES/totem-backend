@@ -10,6 +10,7 @@ public class Company {
     private String name;
     private String category;
     private String description;
+    private String localization;
     private String building;
     
     public Long getId() {
@@ -42,6 +43,14 @@ public class Company {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getLocalization() {
+        return localization;
+    }
+
+    public void setLocalization(String localization) {
+        this.localization = localization;
     }
 
     public String getBuilding() {
