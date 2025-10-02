@@ -1,3 +1,8 @@
+-------------------------------------------------------
+--
+-- Prédios e Coordenadas
+--
+-------------------------------------------------------
 INSERT INTO coordinate (x, y) VALUES (0, 0); -- id 1
 INSERT INTO building (name, model_path, coordinate_id) VALUES ('tecnopuc', '/models/tecnopuc.glb', 1);
 
@@ -47,3 +52,27 @@ INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 15, 16);
 INSERT INTO coordinate (x, y) VALUES (31.45, 8.56); -- id 17
 INSERT INTO coordinate (x, y) VALUES (19, 18.29); -- id 18
 INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 17, 18);
+
+-------------------------------------------------------
+--
+-- Empresas
+--
+-------------------------------------------------------
+INSERT INTO company (name, category, description, building) VALUES ('Microsoft', 'Tecnologia', 'Empresa de software e tecnologia', 'TecnoPUC');
+INSERT INTO company (name, category, description, building) VALUES ('Google Brasil', 'Tecnologia', 'Empresa de pesquisa e publicidade online', '96 A');
+INSERT INTO company (name, category, description, building) VALUES ('PUCRS Incubadora', 'Educação', 'Incubadora de empresas da universidade', '95 A');
+INSERT INTO company (name, category, description, building) VALUES ('Dell Technologies', 'Hardware', 'Empresa de equipamentos de informática', '97');
+INSERT INTO company (name, category, description, building) VALUES ('SAP Labs', 'Software', 'Laboratório de desenvolvimento de software', '95 C');
+
+-------------------------------------------------------
+--
+-- Prédios x Empresas
+--
+-------------------------------------------------------
+INSERT INTO building_company (building_id, company_id, floors) VALUES (1, 1, '3º andar');
+INSERT INTO building_company (building_id, company_id, floors) VALUES (6, 2, '1º e 2º andar');
+INSERT INTO building_company (building_id, company_id, floors) VALUES (3, 3, '4º andar');
+INSERT INTO building_company (building_id, company_id, floors) VALUES (4, 4, '2º andar');
+INSERT INTO building_company (building_id, company_id, floors) VALUES (5, 5, '1º andar');
+INSERT INTO building_company (building_id, company_id, floors) VALUES (6, 1, '5º andar');
+INSERT INTO building_company (building_id, company_id, floors) VALUES (1, 3, '6º andar');
