@@ -16,7 +16,7 @@ public class BuildingCompany {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    private String floors;
+    private String localization;
 
     public Long getId() {
         return id;
@@ -42,11 +42,11 @@ public class BuildingCompany {
         this.company = company;
     }
 
-    public String getFloors() {
-        return floors;
+    public String getLocalization() {
+        return localization;
     }
 
-    public void setFloors(String floors) {
-        this.floors = floors;
+    public void setLocalization(String localization) {
+        this.localization = localization;
     }
 }
