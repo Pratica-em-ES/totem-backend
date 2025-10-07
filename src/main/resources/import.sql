@@ -13,6 +13,84 @@ INSERT INTO coordinate (x, y) VALUES (-13, -26);
 INSERT INTO coordinate (x, y) VALUES (31.45, 8.56);
 -- id 5
 INSERT INTO coordinate (x, y) VALUES (19, 18.29);
+-- id 6
+INSERT INTO coordinate (x, y) VALUES (30, 29);
+-- id 7
+INSERT INTO coordinate (x, y) VALUES (13.5, 12.9);
+-- id 8
+INSERT INTO coordinate (x, y) VALUES (13, 13);
+-- id 9
+INSERT INTO coordinate (x, y) VALUES (-13, 13);
+-- id 10
+INSERT INTO coordinate (x, y) VALUES (-13, -22);
+-- id 11
+INSERT INTO coordinate (x, y) VALUES (17.73, -22);
+-- id 12
+INSERT INTO coordinate (x, y) VALUES (13, 36);
+-- id 13
+INSERT INTO coordinate (x, y) VALUES (13, -20);
+-- id 14
+INSERT INTO coordinate (x, y) VALUES (-13, -1.5);
+-- id 15
+INSERT INTO coordinate (x, y) VALUES (13, -1.5);
+-- id 16
+INSERT INTO coordinate (x, y) VALUES (-13, 28);
+-- id 17
+INSERT INTO coordinate (x, y) VALUES (12, 28);
+-- id 18
+INSERT INTO coordinate (x, y) VALUES (17, -21);
+-- id 19
+INSERT INTO coordinate (x, y) VALUES (17, -29.5);
+-- id 20
+INSERT INTO coordinate (x, y) VALUES (-14, 21);
+-- id 21
+INSERT INTO coordinate (x, y) VALUES (-31, 21);
+-- id 22
+INSERT INTO coordinate (x, y) VALUES (-31, 30.8);
+-- id 23
+INSERT INTO coordinate (x, y) VALUES (-18.66, 10.5);
+-- id 24
+INSERT INTO coordinate (x, y) VALUES (-14.1, 10.5);
+-- id 25
+INSERT INTO coordinate (x, y) VALUES (3.2, 4.58);
+-- id 26
+INSERT INTO coordinate (x, y) VALUES (3.2, -0.25);
+-- id 27
+INSERT INTO coordinate (x, y) VALUES (0.7, 14.14);
+-- id 28
+INSERT INTO coordinate (x, y) VALUES (1.03, 17.37);
+-- id 29
+INSERT INTO coordinate (x, y) VALUES (3.1, 29.22);
+-- id 30
+INSERT INTO coordinate (x, y) VALUES (3.1, 32.76);
+-- id 31
+INSERT INTO coordinate (x, y) VALUES (-17.95, -11.01);
+-- id 32
+INSERT INTO coordinate (x, y) VALUES (-13.71, -11.11);
+-- id 33
+INSERT INTO coordinate (x, y) VALUES (12.77, -30.41);
+-- id 34
+INSERT INTO coordinate (x, y) VALUES (11.31, -38.15);
+-- id 35
+INSERT INTO coordinate (x, y) VALUES (11.07, -38.85);
+-- id 36
+INSERT INTO coordinate (x, y) VALUES (6.99, -38.85);
+-- id 37
+INSERT INTO coordinate (x, y) VALUES (3.16, -30.6);
+-- id 38
+INSERT INTO coordinate (x, y) VALUES (6.51, -38.57);
+-- id 39
+INSERT INTO coordinate (x, y) VALUES (4.76, -11);
+-- id 40
+INSERT INTO coordinate (x, y) VALUES (11.8, -11);
+-- id 41
+INSERT INTO coordinate (x, y) VALUES (26.9, -25.08);
+-- id 42
+INSERT INTO coordinate (x, y) VALUES (34.52, -33.1);
+-- id 43
+INSERT INTO coordinate (x, y) VALUES (35.59, -37.6);
+-- id 44
+INSERT INTO coordinate (x, y) VALUES (44.666, -40.07);
 -------------------------------------------------------
 --
 -- Prédios
@@ -55,7 +133,49 @@ INSERT INTO building (name, model_path, coordinate_id) VALUES ('91 A', '/models/
 INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 2, 3);
 -- id 2
 INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 4, 5);
--------------------------------------------------------
+-- id 3
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 6, 7);
+-- id 4
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 8, 9);
+-- id 5
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 10, 11);
+-- id 6
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 12, 13);
+-- id 7
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 14, 15);
+-- id 8
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 16, 17);
+-- id 9
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (12, 18, 19);
+-- id 10
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 20, 21);
+-- id 11
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 21, 22);
+-- id 12
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 23, 24);
+-- id 13
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 25, 26);
+-- id 14
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 27, 28);
+-- id 15
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 29, 30);
+-- id 16
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 31, 32);
+-- id 17
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 33, 34);
+-- id 18
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 35, 36);
+-- id 19
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 37, 38);
+-- id 20
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 39, 40);
+-- id 21
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (4, 41, 42);
+-- id 22
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (4, 42, 43);
+-- id 23
+INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (4, 43, 44);
+-- -------------------------------------------------------
 --
 -- Empresas
 --
