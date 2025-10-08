@@ -92,33 +92,33 @@ INSERT INTO coordinate (x, y) VALUES (35.59, -37.6);
 -- id 44
 INSERT INTO coordinate (x, y) VALUES (44.666, -40.07);
 -- id 45
-INSERT INTO coordinate (x, y) VALUES (4.19855, -5.92136);
+INSERT INTO coordinate (x, y) VALUES (4.19855, 5.92136);
 -- id 46
-INSERT INTO coordinate (x, y) VALUES (38.6166, 30.0898);
+INSERT INTO coordinate (x, y) VALUES (38.6166, -30.0898);
 -- id 47
-INSERT INTO coordinate (x, y) VALUES (24.2656, 25.1045);
+INSERT INTO coordinate (x, y) VALUES (24.2656, -25.1045);
 -- id 48
-INSERT INTO coordinate (x, y) VALUES (16.5603, -0.00469);
+INSERT INTO coordinate (x, y) VALUES (16.5603, 0.00469);
 -- id 49
-INSERT INTO coordinate (x, y) VALUES (25.5631, -24.8131);
+INSERT INTO coordinate (x, y) VALUES (25.5631, 24.8131);
 -- id 50
-INSERT INTO coordinate (x, y) VALUES (29.3427, -8.6717);
+INSERT INTO coordinate (x, y) VALUES (29.3427, 8.6717);
 -- id 51
-INSERT INTO coordinate (x, y) VALUES (4.19855, 30.0202);
+INSERT INTO coordinate (x, y) VALUES (4.19855, -30.0202);
 -- id 52
-INSERT INTO coordinate (x, y) VALUES (8.02109, 13.1692);
+INSERT INTO coordinate (x, y) VALUES (8.02109, -13.1692);
 -- id 53
-INSERT INTO coordinate (x, y) VALUES (-17.617, 8.56175);
+INSERT INTO coordinate (x, y) VALUES (-17.617, -8.56175);
 -- id 54
-INSERT INTO coordinate (x, y) VALUES (-10.8675, 27.1946);
+INSERT INTO coordinate (x, y) VALUES (-10.8675, -27.1946);
 -- id 55
-INSERT INTO coordinate (x, y) VALUES (4.47708, -18.1663);
+INSERT INTO coordinate (x, y) VALUES (4.47708, 18.1663);
 -- id 56
-INSERT INTO coordinate (x, y) VALUES (3.19291, -34.543);
+INSERT INTO coordinate (x, y) VALUES (3.19291, 34.543);
 -- id 57
-INSERT INTO coordinate (x, y) VALUES (-22.0325, -28.7299);
+INSERT INTO coordinate (x, y) VALUES (-22.0325, 28.7299);
 -- id 58
-INSERT INTO coordinate (x, y) VALUES (-19.6994, -11.3027);
+INSERT INTO coordinate (x, y) VALUES (-19.6994, 11.3027);
 -------------------------------------------------------
 --
 -- Prédios
