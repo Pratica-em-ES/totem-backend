@@ -154,55 +154,55 @@ INSERT INTO building (name, model_path, node_id) VALUES ('92 A', '/models/92a.gl
 INSERT INTO building (name, model_path, node_id) VALUES ('91 A', '/models/91a.glb', 58);
 -------------------------------------------------------
 --
--- Ruas
+-- Arestas (Edges)
 --
 -------------------------------------------------------
 -- id 1
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 2, 3);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 2, 3);
 -- id 2
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 4, 5);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 4, 5);
 -- id 3
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 6, 7);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 6, 7);
 -- id 4
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 8, 9);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 8, 9);
 -- id 5
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 10, 11);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 10, 11);
 -- id 6
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 12, 13);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 12, 13);
 -- id 7
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 14, 15);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 14, 15);
 -- id 8
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 16, 17);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 17);
 -- id 9
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (12, 18, 19);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (12, 18, 19);
 -- id 10
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 20, 21);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 20, 21);
 -- id 11
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 21, 22);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 21, 22);
 -- id 12
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 23, 24);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 23, 24);
 -- id 13
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 25, 26);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 25, 26);
 -- id 14
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 27, 28);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 27, 28);
 -- id 15
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 29, 30);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 29, 30);
 -- id 16
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 31, 32);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 31, 32);
 -- id 17
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 33, 34);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 33, 34);
 -- id 18
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 35, 36);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 35, 36);
 -- id 19
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 37, 38);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 37, 38);
 -- id 20
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 39, 40);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 39, 40);
 -- id 21
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (4, 41, 42);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 41, 42);
 -- id 22
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (4, 42, 43);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 42, 43);
 -- id 23
-INSERT INTO street (width, node_a_id, node_b_id) VALUES (4, 43, 44);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 43, 44);
 -- -------------------------------------------------------
 --
 -- Empresas

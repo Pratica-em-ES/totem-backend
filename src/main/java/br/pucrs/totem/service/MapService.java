@@ -7,26 +7,26 @@ import org.springframework.stereotype.Service;
 import br.pucrs.totem.dto.BuildingDTO;
 import br.pucrs.totem.dto.NodeDTO;
 import br.pucrs.totem.dto.MapDTO;
-import br.pucrs.totem.dto.StreetDTO;
+import br.pucrs.totem.dto.EdgeDTO;
 import br.pucrs.totem.entity.Building;
-import br.pucrs.totem.entity.Street;
+import br.pucrs.totem.entity.Edge;
 import br.pucrs.totem.repository.BuildingRepository;
-import br.pucrs.totem.repository.StreetRepository;
+import br.pucrs.totem.repository.EdgeRepository;
 
 @Service
 public class MapService {
 
     private final BuildingRepository buildingRepository;
-    private final StreetRepository streetRepository;
+    private final EdgeRepository edgeRepository;
 
-    public MapService(BuildingRepository buildingRepository, StreetRepository streetRepository) {
+    public MapService(BuildingRepository buildingRepository, EdgeRepository edgeRepository) {
         this.buildingRepository = buildingRepository;
-        this.streetRepository = streetRepository;
+        this.edgeRepository = edgeRepository;
     }
     
     public MapDTO getMap() {
         List<Building> buildingsList = buildingRepository.findAll();
-        List<Street> streetsList = streetRepository.findAll();
+        List<Edge> edgesList = edgeRepository.findAll();
 
         List<BuildingDTO> buildings = buildingsList.stream()
                 .map(building -> new BuildingDTO(
@@ -38,13 +38,13 @@ public class MapService {
                         )))
                 .toList();
 
-        List<StreetDTO> streets = streetsList.stream()
-                .map(street -> new StreetDTO(
-                        street.getWidth(),
-                        new NodeDTO(street.getNodeA().getX(), street.getNodeA().getY()),
-                        new NodeDTO(street.getNodeB().getX(), street.getNodeB().getY())))
+        List<EdgeDTO> edges = edgesList.stream()
+                .map(edge -> new EdgeDTO(
+                        edge.getWidth(),
+                        new NodeDTO(edge.getNodeA().getX(), edge.getNodeA().getY()),
+                        new NodeDTO(edge.getNodeB().getX(), edge.getNodeB().getY())))
                 .toList();
 
-        return new MapDTO(buildings, streets);
+        return new MapDTO(buildings, edges);
     }
 }

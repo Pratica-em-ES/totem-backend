@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.BuildingCompany;
-import br.pucrs.totem.entity.BuildingStreet;
+import br.pucrs.totem.entity.BuildingEdge;
 import br.pucrs.totem.service.BuildingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -112,44 +112,44 @@ public class BuildingController {
         return ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/{id}/streets")
-    @Operation(summary = "Get building streets", description = "Retrieve all streets associated with a building")
-    public ResponseEntity<List<BuildingStreet>> getBuildingStreets(@PathVariable Long id) {
-        List<BuildingStreet> streets = buildingService.getBuildingStreets(id);
-        return ResponseEntity.ok(streets);
+    @GetMapping("/{id}/edges")
+    @Operation(summary = "Get building edges", description = "Retrieve all edges associated with a building")
+    public ResponseEntity<List<BuildingEdge>> getBuildingEdges(@PathVariable Long id) {
+        List<BuildingEdge> edges = buildingService.getBuildingEdges(id);
+        return ResponseEntity.ok(edges);
     }
 
-    @PostMapping("/{id}/streets")
-    @Operation(summary = "Add street to building", description = "Associate a street with a building")
-    public ResponseEntity<BuildingStreet> addStreetToBuilding(
+    @PostMapping("/{id}/edges")
+    @Operation(summary = "Add edge to building", description = "Associate an edge with a building")
+    public ResponseEntity<BuildingEdge> addEdgeToBuilding(
             @PathVariable Long id,
-            @RequestParam Long streetId,
+            @RequestParam Long edgeId,
             @RequestParam(required = false) Long nodeId) {
-        BuildingStreet buildingStreet = buildingService.addStreetToBuilding(id, streetId, nodeId);
-        if (buildingStreet != null) {
-            return ResponseEntity.ok(buildingStreet);
+        BuildingEdge buildingEdge = buildingService.addEdgeToBuilding(id, edgeId, nodeId);
+        if (buildingEdge != null) {
+            return ResponseEntity.ok(buildingEdge);
         }
         return ResponseEntity.badRequest().build();
     }
 
-    @PutMapping("/{id}/streets/{buildingStreetId}")
-    @Operation(summary = "Update building street", description = "Update a building street association")
-    public ResponseEntity<BuildingStreet> updateBuildingStreet(
+    @PutMapping("/{id}/edges/{buildingEdgeId}")
+    @Operation(summary = "Update building edge", description = "Update a building edge association")
+    public ResponseEntity<BuildingEdge> updateBuildingEdge(
             @PathVariable Long id,
-            @PathVariable Long buildingStreetId) {
-        BuildingStreet updatedBuildingStreet = buildingService.updateBuildingStreet(buildingStreetId);
-        if (updatedBuildingStreet != null) {
-            return ResponseEntity.ok(updatedBuildingStreet);
+            @PathVariable Long buildingEdgeId) {
+        BuildingEdge updatedBuildingEdge = buildingService.updateBuildingEdge(buildingEdgeId);
+        if (updatedBuildingEdge != null) {
+            return ResponseEntity.ok(updatedBuildingEdge);
         }
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{id}/streets/{buildingStreetId}")
-    @Operation(summary = "Remove street from building", description = "Remove the association between a building and a street")
-    public ResponseEntity<Void> deleteBuildingStreet(
+    @DeleteMapping("/{id}/edges/{buildingEdgeId}")
+    @Operation(summary = "Remove edge from building", description = "Remove the association between a building and an edge")
+    public ResponseEntity<Void> deleteBuildingEdge(
             @PathVariable Long id,
-            @PathVariable Long buildingStreetId) {
-        boolean deleted = buildingService.deleteBuildingStreet(buildingStreetId);
+            @PathVariable Long buildingEdgeId) {
+        boolean deleted = buildingService.deleteBuildingEdge(buildingEdgeId);
         if (deleted) {
             return ResponseEntity.noContent().build();
         }

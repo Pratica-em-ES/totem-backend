@@ -7,15 +7,15 @@ import org.springframework.stereotype.Service;
 
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.BuildingCompany;
-import br.pucrs.totem.entity.BuildingStreet;
+import br.pucrs.totem.entity.BuildingEdge;
 import br.pucrs.totem.entity.Company;
 import br.pucrs.totem.entity.Node;
-import br.pucrs.totem.entity.Street;
+import br.pucrs.totem.entity.Edge;
 import br.pucrs.totem.repository.BuildingRepository;
 import br.pucrs.totem.repository.BuildingCompanyRepository;
-import br.pucrs.totem.repository.BuildingStreetRepository;
+import br.pucrs.totem.repository.BuildingEdgeRepository;
 import br.pucrs.totem.repository.CompanyRepository;
-import br.pucrs.totem.repository.StreetRepository;
+import br.pucrs.totem.repository.EdgeRepository;
 import br.pucrs.totem.repository.NodeRepository;
 
 @Service
@@ -23,22 +23,22 @@ public class BuildingService {
 
     private final BuildingRepository buildingRepository;
     private final BuildingCompanyRepository buildingCompanyRepository;
-    private final BuildingStreetRepository buildingStreetRepository;
+    private final BuildingEdgeRepository buildingEdgeRepository;
     private final CompanyRepository companyRepository;
-    private final StreetRepository streetRepository;
+    private final EdgeRepository edgeRepository;
     private final NodeRepository nodeRepository;
 
     public BuildingService(BuildingRepository buildingRepository, 
                           BuildingCompanyRepository buildingCompanyRepository,
-                          BuildingStreetRepository buildingStreetRepository,
+                          BuildingEdgeRepository buildingEdgeRepository,
                           CompanyRepository companyRepository,
-                          StreetRepository streetRepository,
+                          EdgeRepository edgeRepository,
                           NodeRepository nodeRepository) {
         this.buildingRepository = buildingRepository;
         this.buildingCompanyRepository = buildingCompanyRepository;
-        this.buildingStreetRepository = buildingStreetRepository;
+        this.buildingEdgeRepository = buildingEdgeRepository;
         this.companyRepository = companyRepository;
-        this.streetRepository = streetRepository;
+        this.edgeRepository = edgeRepository;
         this.nodeRepository = nodeRepository;
     }
 
@@ -107,33 +107,33 @@ public class BuildingService {
         return false;
     }
 
-    public List<BuildingStreet> getBuildingStreets(Long buildingId) {
-        return buildingStreetRepository.findByBuildingId(buildingId);
+    public List<BuildingEdge> getBuildingEdges(Long buildingId) {
+        return buildingEdgeRepository.findByBuildingId(buildingId);
     }
 
-    public BuildingStreet addStreetToBuilding(Long buildingId, Long streetId, Long nodeId) {
+    public BuildingEdge addEdgeToBuilding(Long buildingId, Long edgeId, Long nodeId) {
         Optional<Building> building = buildingRepository.findById(buildingId);
-        Optional<Street> street = streetRepository.findById(streetId);
+        Optional<Edge> edge = edgeRepository.findById(edgeId);
         Optional<Node> node = nodeRepository.findById(nodeId);
-        if (building.isPresent() && street.isPresent() && node.isPresent()) {
-            BuildingStreet buildingStreet = new BuildingStreet();
-            buildingStreet.setBuilding(building.get());
-            buildingStreet.setStreet(street.get());
-            buildingStreet.setNode(node.get());
-            return buildingStreetRepository.save(buildingStreet);
+        if (building.isPresent() && edge.isPresent() && node.isPresent()) {
+            BuildingEdge buildingEdge = new BuildingEdge();
+            buildingEdge.setBuilding(building.get());
+            buildingEdge.setEdge(edge.get());
+            buildingEdge.setNode(node.get());
+            return buildingEdgeRepository.save(buildingEdge);
         }
         return null;
     }
 
-    public BuildingStreet updateBuildingStreet(Long buildingStreetId) {
-        return buildingStreetRepository.findById(buildingStreetId)
-                .map(buildingStreetRepository::save)
+    public BuildingEdge updateBuildingEdge(Long buildingEdgeId) {
+        return buildingEdgeRepository.findById(buildingEdgeId)
+                .map(buildingEdgeRepository::save)
                 .orElse(null);
     }
 
-    public boolean deleteBuildingStreet(Long buildingStreetId) {
-        if (buildingStreetRepository.existsById(buildingStreetId)) {
-            buildingStreetRepository.deleteById(buildingStreetId);
+    public boolean deleteBuildingEdge(Long buildingEdgeId) {
+        if (buildingEdgeRepository.existsById(buildingEdgeId)) {
+            buildingEdgeRepository.deleteById(buildingEdgeId);
             return true;
         }
         return false;

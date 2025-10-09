@@ -4,13 +4,13 @@ import java.util.List;
 
 public class MapDTO {
     private List<BuildingDTO> buildings;
-    private List<StreetDTO> streets;
+    private List<EdgeDTO> edges;
 
     public MapDTO() {}
 
-    public MapDTO(List<BuildingDTO> buildings, List<StreetDTO> streets) {
+    public MapDTO(List<BuildingDTO> buildings, List<EdgeDTO> edges) {
         this.buildings = buildings;
-        this.streets = streets;
+        this.edges = edges;
     }
 
     public List<BuildingDTO> getBuildings() {
@@ -21,11 +21,11 @@ public class MapDTO {
         this.buildings = buildings;
     }
 
-    public List<StreetDTO> getStreets() {
-        return streets;
+    public List<EdgeDTO> getEdges() {
+        return edges;
     }
 
-    public void setStreets(List<StreetDTO> streets) {
-        this.streets = streets;
+    public void setEdges(List<EdgeDTO> edges) {
+        this.edges = edges;
     }
 }

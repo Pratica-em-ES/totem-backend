@@ -3,7 +3,7 @@ package br.pucrs.totem.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Street {
+public class Edge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
