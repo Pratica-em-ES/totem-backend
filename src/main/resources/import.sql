@@ -1,208 +1,208 @@
 -------------------------------------------------------
 --
--- Coordenadas
+-- Nós (Nodes)
 --
 -------------------------------------------------------
 -- id 1
-INSERT INTO coordinate (x, y) VALUES (0, 0);
+INSERT INTO node (x, y) VALUES (0, 0);
 -- id 2
-INSERT INTO coordinate (x, y) VALUES (-13, 28);
+INSERT INTO node (x, y) VALUES (-13, 28);
 -- id 3
-INSERT INTO coordinate (x, y) VALUES (-13, -26);
+INSERT INTO node (x, y) VALUES (-13, -26);
 -- id 4
-INSERT INTO coordinate (x, y) VALUES (31.45, 8.56);
+INSERT INTO node (x, y) VALUES (31.45, 8.56);
 -- id 5
-INSERT INTO coordinate (x, y) VALUES (19, 18.29);
+INSERT INTO node (x, y) VALUES (19, 18.29);
 -- id 6
-INSERT INTO coordinate (x, y) VALUES (30, 29);
+INSERT INTO node (x, y) VALUES (30, 29);
 -- id 7
-INSERT INTO coordinate (x, y) VALUES (13.5, 12.9);
+INSERT INTO node (x, y) VALUES (13.5, 12.9);
 -- id 8
-INSERT INTO coordinate (x, y) VALUES (13, 13);
+INSERT INTO node (x, y) VALUES (13, 13);
 -- id 9
-INSERT INTO coordinate (x, y) VALUES (-13, 13);
+INSERT INTO node (x, y) VALUES (-13, 13);
 -- id 10
-INSERT INTO coordinate (x, y) VALUES (-13, -22);
+INSERT INTO node (x, y) VALUES (-13, -22);
 -- id 11
-INSERT INTO coordinate (x, y) VALUES (17.73, -22);
+INSERT INTO node (x, y) VALUES (17.73, -22);
 -- id 12
-INSERT INTO coordinate (x, y) VALUES (13, 36);
+INSERT INTO node (x, y) VALUES (13, 36);
 -- id 13
-INSERT INTO coordinate (x, y) VALUES (13, -20);
+INSERT INTO node (x, y) VALUES (13, -20);
 -- id 14
-INSERT INTO coordinate (x, y) VALUES (-13, -1.5);
+INSERT INTO node (x, y) VALUES (-13, -1.5);
 -- id 15
-INSERT INTO coordinate (x, y) VALUES (13, -1.5);
+INSERT INTO node (x, y) VALUES (13, -1.5);
 -- id 16
-INSERT INTO coordinate (x, y) VALUES (-13, 28);
+INSERT INTO node (x, y) VALUES (-13, 28);
 -- id 17
-INSERT INTO coordinate (x, y) VALUES (12, 28);
+INSERT INTO node (x, y) VALUES (12, 28);
 -- id 18
-INSERT INTO coordinate (x, y) VALUES (17, -21);
+INSERT INTO node (x, y) VALUES (17, -21);
 -- id 19
-INSERT INTO coordinate (x, y) VALUES (17, -29.5);
+INSERT INTO node (x, y) VALUES (17, -29.5);
 -- id 20
-INSERT INTO coordinate (x, y) VALUES (-14, 21);
+INSERT INTO node (x, y) VALUES (-14, 21);
 -- id 21
-INSERT INTO coordinate (x, y) VALUES (-31, 21);
+INSERT INTO node (x, y) VALUES (-31, 21);
 -- id 22
-INSERT INTO coordinate (x, y) VALUES (-31, 30.8);
+INSERT INTO node (x, y) VALUES (-31, 30.8);
 -- id 23
-INSERT INTO coordinate (x, y) VALUES (-18.66, 10.5);
+INSERT INTO node (x, y) VALUES (-18.66, 10.5);
 -- id 24
-INSERT INTO coordinate (x, y) VALUES (-14.1, 10.5);
+INSERT INTO node (x, y) VALUES (-14.1, 10.5);
 -- id 25
-INSERT INTO coordinate (x, y) VALUES (3.2, 4.58);
+INSERT INTO node (x, y) VALUES (3.2, 4.58);
 -- id 26
-INSERT INTO coordinate (x, y) VALUES (3.2, -0.25);
+INSERT INTO node (x, y) VALUES (3.2, -0.25);
 -- id 27
-INSERT INTO coordinate (x, y) VALUES (0.7, 14.14);
+INSERT INTO node (x, y) VALUES (0.7, 14.14);
 -- id 28
-INSERT INTO coordinate (x, y) VALUES (1.03, 17.37);
+INSERT INTO node (x, y) VALUES (1.03, 17.37);
 -- id 29
-INSERT INTO coordinate (x, y) VALUES (3.1, 29.22);
+INSERT INTO node (x, y) VALUES (3.1, 29.22);
 -- id 30
-INSERT INTO coordinate (x, y) VALUES (3.1, 32.76);
+INSERT INTO node (x, y) VALUES (3.1, 32.76);
 -- id 31
-INSERT INTO coordinate (x, y) VALUES (-17.95, -11.01);
+INSERT INTO node (x, y) VALUES (-17.95, -11.01);
 -- id 32
-INSERT INTO coordinate (x, y) VALUES (-13.71, -11.11);
+INSERT INTO node (x, y) VALUES (-13.71, -11.11);
 -- id 33
-INSERT INTO coordinate (x, y) VALUES (12.77, -30.41);
+INSERT INTO node (x, y) VALUES (12.77, -30.41);
 -- id 34
-INSERT INTO coordinate (x, y) VALUES (11.31, -38.15);
+INSERT INTO node (x, y) VALUES (11.31, -38.15);
 -- id 35
-INSERT INTO coordinate (x, y) VALUES (11.07, -38.85);
+INSERT INTO node (x, y) VALUES (11.07, -38.85);
 -- id 36
-INSERT INTO coordinate (x, y) VALUES (6.99, -38.85);
+INSERT INTO node (x, y) VALUES (6.99, -38.85);
 -- id 37
-INSERT INTO coordinate (x, y) VALUES (3.16, -30.6);
+INSERT INTO node (x, y) VALUES (3.16, -30.6);
 -- id 38
-INSERT INTO coordinate (x, y) VALUES (6.51, -38.57);
+INSERT INTO node (x, y) VALUES (6.51, -38.57);
 -- id 39
-INSERT INTO coordinate (x, y) VALUES (4.76, -11);
+INSERT INTO node (x, y) VALUES (4.76, -11);
 -- id 40
-INSERT INTO coordinate (x, y) VALUES (11.8, -11);
+INSERT INTO node (x, y) VALUES (11.8, -11);
 -- id 41
-INSERT INTO coordinate (x, y) VALUES (26.9, -25.08);
+INSERT INTO node (x, y) VALUES (26.9, -25.08);
 -- id 42
-INSERT INTO coordinate (x, y) VALUES (34.52, -33.1);
+INSERT INTO node (x, y) VALUES (34.52, -33.1);
 -- id 43
-INSERT INTO coordinate (x, y) VALUES (35.59, -37.6);
+INSERT INTO node (x, y) VALUES (35.59, -37.6);
 -- id 44
-INSERT INTO coordinate (x, y) VALUES (44.666, -40.07);
+INSERT INTO node (x, y) VALUES (44.666, -40.07);
 -- id 45
-INSERT INTO coordinate (x, y) VALUES (4.19855, 5.92136);
+INSERT INTO node (x, y) VALUES (4.19855, 5.92136);
 -- id 46
-INSERT INTO coordinate (x, y) VALUES (38.6166, -30.0898);
+INSERT INTO node (x, y) VALUES (38.6166, -30.0898);
 -- id 47
-INSERT INTO coordinate (x, y) VALUES (24.2656, -25.1045);
+INSERT INTO node (x, y) VALUES (24.2656, -25.1045);
 -- id 48
-INSERT INTO coordinate (x, y) VALUES (16.5603, 0.00469);
+INSERT INTO node (x, y) VALUES (16.5603, 0.00469);
 -- id 49
-INSERT INTO coordinate (x, y) VALUES (25.5631, 24.8131);
+INSERT INTO node (x, y) VALUES (25.5631, 24.8131);
 -- id 50
-INSERT INTO coordinate (x, y) VALUES (29.3427, 8.6717);
+INSERT INTO node (x, y) VALUES (29.3427, 8.6717);
 -- id 51
-INSERT INTO coordinate (x, y) VALUES (4.19855, -30.0202);
+INSERT INTO node (x, y) VALUES (4.19855, -30.0202);
 -- id 52
-INSERT INTO coordinate (x, y) VALUES (8.02109, -13.1692);
+INSERT INTO node (x, y) VALUES (8.02109, -13.1692);
 -- id 53
-INSERT INTO coordinate (x, y) VALUES (-17.617, -8.56175);
+INSERT INTO node (x, y) VALUES (-17.617, -8.56175);
 -- id 54
-INSERT INTO coordinate (x, y) VALUES (-10.8675, -27.1946);
+INSERT INTO node (x, y) VALUES (-10.8675, -27.1946);
 -- id 55
-INSERT INTO coordinate (x, y) VALUES (4.47708, 18.1663);
+INSERT INTO node (x, y) VALUES (4.47708, 18.1663);
 -- id 56
-INSERT INTO coordinate (x, y) VALUES (3.19291, 34.543);
+INSERT INTO node (x, y) VALUES (3.19291, 34.543);
 -- id 57
-INSERT INTO coordinate (x, y) VALUES (-22.0325, 28.7299);
+INSERT INTO node (x, y) VALUES (-22.0325, 28.7299);
 -- id 58
-INSERT INTO coordinate (x, y) VALUES (-19.6994, 11.3027);
+INSERT INTO node (x, y) VALUES (-19.6994, 11.3027);
 -------------------------------------------------------
 --
 -- Prédios
 --
 -------------------------------------------------------
 -- id 1
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('tecnopuc', '/models/tecnopuc.glb', 46);
+INSERT INTO building (name, model_path, node_id) VALUES ('tecnopuc', '/models/tecnopuc.glb', 46);
 -- id 2
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('99 A', '/models/99a.glb', 47);
+INSERT INTO building (name, model_path, node_id) VALUES ('99 A', '/models/99a.glb', 47);
 -- id 3
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('95 A', '/models/95A.glb', 48);
+INSERT INTO building (name, model_path, node_id) VALUES ('95 A', '/models/95A.glb', 48);
 -- id 4
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('97', '/models/97.glb', 49);
+INSERT INTO building (name, model_path, node_id) VALUES ('97', '/models/97.glb', 49);
 -- id 5
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('95 C', '/models/95c.glb', 50);
+INSERT INTO building (name, model_path, node_id) VALUES ('95 C', '/models/95c.glb', 50);
 -- id 6
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('96 A', '/models/96A.glb', 51);
+INSERT INTO building (name, model_path, node_id) VALUES ('96 A', '/models/96A.glb', 51);
 -- id 7
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('96 B/C/D/F', '/models/96bcdf.glb', 52);
+INSERT INTO building (name, model_path, node_id) VALUES ('96 B/C/D/F', '/models/96bcdf.glb', 52);
 -- id 8
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('96 J', '/models/96j.glb', 53);
+INSERT INTO building (name, model_path, node_id) VALUES ('96 J', '/models/96j.glb', 53);
 -- id 9
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('96 E/H/I/G', '/models/96.glb', 54);
+INSERT INTO building (name, model_path, node_id) VALUES ('96 E/H/I/G', '/models/96.glb', 54);
 -- id 10
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('91 B', '/models/91B.glb', 45);
+INSERT INTO building (name, model_path, node_id) VALUES ('91 B', '/models/91B.glb', 45);
 -- id 11
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('94', '/models/94.glb', 55);
+INSERT INTO building (name, model_path, node_id) VALUES ('94', '/models/94.glb', 55);
 -- id 12
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('93', '/models/93.glb', 56);
+INSERT INTO building (name, model_path, node_id) VALUES ('93', '/models/93.glb', 56);
 -- id 13
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('92 A', '/models/92a.glb', 57);
+INSERT INTO building (name, model_path, node_id) VALUES ('92 A', '/models/92a.glb', 57);
 -- id 14
-INSERT INTO building (name, model_path, coordinate_id) VALUES ('91 A', '/models/91a.glb', 58);
+INSERT INTO building (name, model_path, node_id) VALUES ('91 A', '/models/91a.glb', 58);
 -------------------------------------------------------
 --
 -- Ruas
 --
 -------------------------------------------------------
 -- id 1
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 2, 3);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 2, 3);
 -- id 2
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 4, 5);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 4, 5);
 -- id 3
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 6, 7);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 6, 7);
 -- id 4
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 8, 9);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 8, 9);
 -- id 5
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 10, 11);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 10, 11);
 -- id 6
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 12, 13);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 12, 13);
 -- id 7
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 14, 15);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 14, 15);
 -- id 8
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 16, 17);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 16, 17);
 -- id 9
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (12, 18, 19);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (12, 18, 19);
 -- id 10
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 20, 21);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 20, 21);
 -- id 11
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 21, 22);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 21, 22);
 -- id 12
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 23, 24);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 23, 24);
 -- id 13
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 25, 26);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 25, 26);
 -- id 14
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 27, 28);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 27, 28);
 -- id 15
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 29, 30);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 29, 30);
 -- id 16
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 31, 32);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 31, 32);
 -- id 17
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 33, 34);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 33, 34);
 -- id 18
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 35, 36);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 35, 36);
 -- id 19
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 37, 38);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 37, 38);
 -- id 20
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (3, 39, 40);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (3, 39, 40);
 -- id 21
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (4, 41, 42);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (4, 41, 42);
 -- id 22
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (4, 42, 43);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (4, 42, 43);
 -- id 23
-INSERT INTO street (width, coordinate_a_id, coordinate_b_id) VALUES (4, 43, 44);
+INSERT INTO street (width, node_a_id, node_b_id) VALUES (4, 43, 44);
 -- -------------------------------------------------------
 --
 -- Empresas

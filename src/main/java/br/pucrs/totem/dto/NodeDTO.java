@@ -1,13 +1,13 @@
 package br.pucrs.totem.dto;
 
-public class CoordinateDTO {
+public class NodeDTO {
     private Double x;
     private Double y;
 
-    public CoordinateDTO() {
+    public NodeDTO() {
     }
 
-    public CoordinateDTO(Double x, Double y) {
+    public NodeDTO(Double x, Double y) {
         this.x = x;
         this.y = y;
     }

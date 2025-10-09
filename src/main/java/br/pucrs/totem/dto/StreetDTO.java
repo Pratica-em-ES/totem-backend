@@ -2,15 +2,15 @@ package br.pucrs.totem.dto;
 
 public class StreetDTO {
     private Double width;
-    private CoordinateDTO coordinateA;
-    private CoordinateDTO coordinateB;
+    private NodeDTO nodeA;
+    private NodeDTO nodeB;
 
     public StreetDTO() {}
 
-    public StreetDTO(Double width, CoordinateDTO coordinateA, CoordinateDTO coordinateB) {
+    public StreetDTO(Double width, NodeDTO nodeA, NodeDTO nodeB) {
         this.width = width;
-        this.coordinateA = coordinateA;
-        this.coordinateB = coordinateB;
+        this.nodeA = nodeA;
+        this.nodeB = nodeB;
     }
 
     public Double getWidth() {
@@ -21,19 +21,19 @@ public class StreetDTO {
         this.width = width;
     }
 
-    public CoordinateDTO getCoordinateA() {
-        return coordinateA;
+    public NodeDTO getNodeA() {
+        return nodeA;
     }
 
-    public void setCoordinateA(CoordinateDTO coordinateA) {
-        this.coordinateA = coordinateA;
+    public void setNodeA(NodeDTO nodeA) {
+        this.nodeA = nodeA;
     }
 
-    public CoordinateDTO getCoordinateB() {
-        return coordinateB;
+    public NodeDTO getNodeB() {
+        return nodeB;
     }
 
-    public void setCoordinateB(CoordinateDTO coordinateB) {
-        this.coordinateB = coordinateB;
+    public void setNodeB(NodeDTO nodeB) {
+        this.nodeB = nodeB;
     }
 }

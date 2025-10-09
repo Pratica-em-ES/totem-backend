@@ -11,8 +11,8 @@ public class Building {
     private String modelPath;
 
     @ManyToOne
-    @JoinColumn(name = "coordinate_id")
-    private Coordinate coordinate;
+    @JoinColumn(name = "node_id")
+    private Node node;
 
     public Long getId() {
         return id;
@@ -38,11 +38,11 @@ public class Building {
         this.modelPath = modelPath;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public Node getNode() {
+        return node;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
+    public void setNode(Node node) {
+        this.node = node;
     }
 }

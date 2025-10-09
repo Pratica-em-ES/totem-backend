@@ -43,8 +43,8 @@ public class StreetService {
         return streetRepository.findById(id)
                 .map(street -> {
                     street.setWidth(streetDetails.getWidth());
-                    street.setCoordinateA(streetDetails.getCoordinateA());
-                    street.setCoordinateB(streetDetails.getCoordinateB());
+                    street.setNodeA(streetDetails.getNodeA());
+                    street.setNodeB(streetDetails.getNodeB());
                     return streetRepository.save(street);
                 })
                 .orElse(null);

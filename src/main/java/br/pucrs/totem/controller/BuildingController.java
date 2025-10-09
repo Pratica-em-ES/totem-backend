@@ -124,8 +124,8 @@ public class BuildingController {
     public ResponseEntity<BuildingStreet> addStreetToBuilding(
             @PathVariable Long id,
             @RequestParam Long streetId,
-            @RequestParam(required = false) Long coordinateId) {
-        BuildingStreet buildingStreet = buildingService.addStreetToBuilding(id, streetId, coordinateId);
+            @RequestParam(required = false) Long nodeId) {
+        BuildingStreet buildingStreet = buildingService.addStreetToBuilding(id, streetId, nodeId);
         if (buildingStreet != null) {
             return ResponseEntity.ok(buildingStreet);
         }

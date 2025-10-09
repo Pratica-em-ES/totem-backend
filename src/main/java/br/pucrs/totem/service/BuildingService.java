@@ -9,14 +9,14 @@ import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.BuildingCompany;
 import br.pucrs.totem.entity.BuildingStreet;
 import br.pucrs.totem.entity.Company;
-import br.pucrs.totem.entity.Coordinate;
+import br.pucrs.totem.entity.Node;
 import br.pucrs.totem.entity.Street;
 import br.pucrs.totem.repository.BuildingRepository;
 import br.pucrs.totem.repository.BuildingCompanyRepository;
 import br.pucrs.totem.repository.BuildingStreetRepository;
 import br.pucrs.totem.repository.CompanyRepository;
 import br.pucrs.totem.repository.StreetRepository;
-import br.pucrs.totem.repository.CoordinateRepository;
+import br.pucrs.totem.repository.NodeRepository;
 
 @Service
 public class BuildingService {
@@ -26,20 +26,20 @@ public class BuildingService {
     private final BuildingStreetRepository buildingStreetRepository;
     private final CompanyRepository companyRepository;
     private final StreetRepository streetRepository;
-    private final CoordinateRepository coordinateRepository;
+    private final NodeRepository nodeRepository;
 
     public BuildingService(BuildingRepository buildingRepository, 
                           BuildingCompanyRepository buildingCompanyRepository,
                           BuildingStreetRepository buildingStreetRepository,
                           CompanyRepository companyRepository,
                           StreetRepository streetRepository,
-                          CoordinateRepository coordinateRepository) {
+                          NodeRepository nodeRepository) {
         this.buildingRepository = buildingRepository;
         this.buildingCompanyRepository = buildingCompanyRepository;
         this.buildingStreetRepository = buildingStreetRepository;
         this.companyRepository = companyRepository;
         this.streetRepository = streetRepository;
-        this.coordinateRepository = coordinateRepository;
+        this.nodeRepository = nodeRepository;
     }
 
     public List<Building> getAllBuildings() {
@@ -59,7 +59,7 @@ public class BuildingService {
                 .map(building -> {
                     building.setName(buildingDetails.getName());
                     building.setModelPath(buildingDetails.getModelPath());
-                    building.setCoordinate(buildingDetails.getCoordinate());
+                    building.setNode(buildingDetails.getNode());
                     return buildingRepository.save(building);
                 })
                 .orElse(null);
@@ -111,15 +111,15 @@ public class BuildingService {
         return buildingStreetRepository.findByBuildingId(buildingId);
     }
 
-    public BuildingStreet addStreetToBuilding(Long buildingId, Long streetId, Long coordinateId) {
+    public BuildingStreet addStreetToBuilding(Long buildingId, Long streetId, Long nodeId) {
         Optional<Building> building = buildingRepository.findById(buildingId);
         Optional<Street> street = streetRepository.findById(streetId);
-        Optional<Coordinate> coordinate = coordinateRepository.findById(coordinateId);
-        if (building.isPresent() && street.isPresent() && coordinate.isPresent()) {
+        Optional<Node> node = nodeRepository.findById(nodeId);
+        if (building.isPresent() && street.isPresent() && node.isPresent()) {
             BuildingStreet buildingStreet = new BuildingStreet();
             buildingStreet.setBuilding(building.get());
             buildingStreet.setStreet(street.get());
-            buildingStreet.setCoordinate(coordinate.get());
+            buildingStreet.setNode(node.get());
             return buildingStreetRepository.save(buildingStreet);
         }
         return null;

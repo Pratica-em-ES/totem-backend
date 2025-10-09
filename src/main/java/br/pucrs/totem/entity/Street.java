@@ -10,12 +10,12 @@ public class Street {
     private Double width;
 
     @ManyToOne
-    @JoinColumn(name = "coordinate_a_id")
-    private Coordinate coordinateA;
+    @JoinColumn(name = "node_a_id")
+    private Node nodeA;
 
     @ManyToOne
-    @JoinColumn(name = "coordinate_b_id")
-    private Coordinate coordinateB;
+    @JoinColumn(name = "node_b_id")
+    private Node nodeB;
     
     public Long getId() {
         return id;
@@ -33,19 +33,19 @@ public class Street {
         this.width = width;
     }
 
-    public Coordinate getCoordinateA() {
-        return coordinateA;
+    public Node getNodeA() {
+        return nodeA;
     }
 
-    public void setCoordinateA(Coordinate coordinateA) {
-        this.coordinateA = coordinateA;
+    public void setNodeA(Node nodeA) {
+        this.nodeA = nodeA;
     }
 
-    public Coordinate getCoordinateB() {
-        return coordinateB;
+    public Node getNodeB() {
+        return nodeB;
     }
 
-    public void setCoordinateB(Coordinate coordinateB) {
-        this.coordinateB = coordinateB;
+    public void setNodeB(Node nodeB) {
+        this.nodeB = nodeB;
     }
 }
