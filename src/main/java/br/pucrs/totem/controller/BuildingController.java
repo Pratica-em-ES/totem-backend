@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.BuildingCompany;
-import br.pucrs.totem.entity.BuildingStreet;
 import br.pucrs.totem.service.BuildingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -106,50 +105,6 @@ public class BuildingController {
             @PathVariable Long id,
             @PathVariable Long buildingCompanyId) {
         boolean deleted = buildingService.deleteBuildingCompany(buildingCompanyId);
-        if (deleted) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("/{id}/streets")
-    @Operation(summary = "Get building streets", description = "Retrieve all streets associated with a building")
-    public ResponseEntity<List<BuildingStreet>> getBuildingStreets(@PathVariable Long id) {
-        List<BuildingStreet> streets = buildingService.getBuildingStreets(id);
-        return ResponseEntity.ok(streets);
-    }
-
-    @PostMapping("/{id}/streets")
-    @Operation(summary = "Add street to building", description = "Associate a street with a building")
-    public ResponseEntity<BuildingStreet> addStreetToBuilding(
-            @PathVariable Long id,
-            @RequestParam Long streetId,
-            @RequestParam(required = false) Long coordinateId) {
-        BuildingStreet buildingStreet = buildingService.addStreetToBuilding(id, streetId, coordinateId);
-        if (buildingStreet != null) {
-            return ResponseEntity.ok(buildingStreet);
-        }
-        return ResponseEntity.badRequest().build();
-    }
-
-    @PutMapping("/{id}/streets/{buildingStreetId}")
-    @Operation(summary = "Update building street", description = "Update a building street association")
-    public ResponseEntity<BuildingStreet> updateBuildingStreet(
-            @PathVariable Long id,
-            @PathVariable Long buildingStreetId) {
-        BuildingStreet updatedBuildingStreet = buildingService.updateBuildingStreet(buildingStreetId);
-        if (updatedBuildingStreet != null) {
-            return ResponseEntity.ok(updatedBuildingStreet);
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-    @DeleteMapping("/{id}/streets/{buildingStreetId}")
-    @Operation(summary = "Remove street from building", description = "Remove the association between a building and a street")
-    public ResponseEntity<Void> deleteBuildingStreet(
-            @PathVariable Long id,
-            @PathVariable Long buildingStreetId) {
-        boolean deleted = buildingService.deleteBuildingStreet(buildingStreetId);
         if (deleted) {
             return ResponseEntity.noContent().build();
         }

@@ -1,18 +1,16 @@
 package br.pucrs.totem.dto;
 
-import br.pucrs.totem.entity.Coordinate;
-
 public class BuildingDTO {
     private String name;
     private String modelPath;
-    private CoordinateDTO coordinate;
+    private NodeDTO node;
 
     public BuildingDTO() {}
 
-    public BuildingDTO(String name, String modelPath, CoordinateDTO coordinate) {
+    public BuildingDTO(String name, String modelPath, NodeDTO node) {
         this.name = name;
         this.modelPath = modelPath;
-        this.coordinate = coordinate;
+        this.node = node;
     }
 
     public String getName() {
@@ -31,11 +29,11 @@ public class BuildingDTO {
         this.modelPath = modelPath;
     }
 
-    public CoordinateDTO getCoordinate() {
-        return coordinate;
+    public NodeDTO getNode() {
+        return node;
     }
 
-    public void setCoordinate(CoordinateDTO coordinate) {
-        this.coordinate = coordinate;
+    public void setNode(NodeDTO node) {
+        this.node = node;
     }
 }

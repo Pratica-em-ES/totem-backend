@@ -3,7 +3,7 @@ package br.pucrs.totem.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Coordinate {
+public class Node {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

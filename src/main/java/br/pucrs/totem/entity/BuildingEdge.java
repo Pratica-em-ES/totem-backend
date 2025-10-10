@@ -3,7 +3,7 @@ package br.pucrs.totem.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class BuildingStreet {
+public class BuildingEdge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,12 +13,12 @@ public class BuildingStreet {
     private Building building;
 
     @ManyToOne
-    @JoinColumn(name = "street_id")
-    private Street street;
+    @JoinColumn(name = "edge_id")
+    private Edge edge;
 
     @ManyToOne
-    @JoinColumn(name = "coordinate_id")
-    private Coordinate coordinate;
+    @JoinColumn(name = "node_id")
+    private Node node;
 
     public Long getId() {
         return id;
@@ -36,19 +36,19 @@ public class BuildingStreet {
         this.building = building;
     }
 
-    public Street getStreet() {
-        return street;
+    public Edge getEdge() {
+        return edge;
     }
 
-    public void setStreet(Street street) {
-        this.street = street;
+    public void setEdge(Edge edge) {
+        this.edge = edge;
     }
 
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public Node getNode() {
+        return node;
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
+    public void setNode(Node node) {
+        this.node = node;
     }
 }

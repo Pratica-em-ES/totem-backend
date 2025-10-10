@@ -7,39 +7,24 @@ import org.springframework.stereotype.Service;
 
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.BuildingCompany;
-import br.pucrs.totem.entity.BuildingStreet;
 import br.pucrs.totem.entity.Company;
-import br.pucrs.totem.entity.Coordinate;
-import br.pucrs.totem.entity.Street;
 import br.pucrs.totem.repository.BuildingRepository;
 import br.pucrs.totem.repository.BuildingCompanyRepository;
-import br.pucrs.totem.repository.BuildingStreetRepository;
 import br.pucrs.totem.repository.CompanyRepository;
-import br.pucrs.totem.repository.StreetRepository;
-import br.pucrs.totem.repository.CoordinateRepository;
 
 @Service
 public class BuildingService {
 
     private final BuildingRepository buildingRepository;
     private final BuildingCompanyRepository buildingCompanyRepository;
-    private final BuildingStreetRepository buildingStreetRepository;
     private final CompanyRepository companyRepository;
-    private final StreetRepository streetRepository;
-    private final CoordinateRepository coordinateRepository;
 
     public BuildingService(BuildingRepository buildingRepository, 
                           BuildingCompanyRepository buildingCompanyRepository,
-                          BuildingStreetRepository buildingStreetRepository,
-                          CompanyRepository companyRepository,
-                          StreetRepository streetRepository,
-                          CoordinateRepository coordinateRepository) {
+                          CompanyRepository companyRepository) {
         this.buildingRepository = buildingRepository;
         this.buildingCompanyRepository = buildingCompanyRepository;
-        this.buildingStreetRepository = buildingStreetRepository;
         this.companyRepository = companyRepository;
-        this.streetRepository = streetRepository;
-        this.coordinateRepository = coordinateRepository;
     }
 
     public List<Building> getAllBuildings() {
@@ -59,7 +44,7 @@ public class BuildingService {
                 .map(building -> {
                     building.setName(buildingDetails.getName());
                     building.setModelPath(buildingDetails.getModelPath());
-                    building.setCoordinate(buildingDetails.getCoordinate());
+                    building.setNode(buildingDetails.getNode());
                     return buildingRepository.save(building);
                 })
                 .orElse(null);
@@ -102,38 +87,6 @@ public class BuildingService {
     public boolean deleteBuildingCompany(Long buildingCompanyId) {
         if (buildingCompanyRepository.existsById(buildingCompanyId)) {
             buildingCompanyRepository.deleteById(buildingCompanyId);
-            return true;
-        }
-        return false;
-    }
-
-    public List<BuildingStreet> getBuildingStreets(Long buildingId) {
-        return buildingStreetRepository.findByBuildingId(buildingId);
-    }
-
-    public BuildingStreet addStreetToBuilding(Long buildingId, Long streetId, Long coordinateId) {
-        Optional<Building> building = buildingRepository.findById(buildingId);
-        Optional<Street> street = streetRepository.findById(streetId);
-        Optional<Coordinate> coordinate = coordinateRepository.findById(coordinateId);
-        if (building.isPresent() && street.isPresent() && coordinate.isPresent()) {
-            BuildingStreet buildingStreet = new BuildingStreet();
-            buildingStreet.setBuilding(building.get());
-            buildingStreet.setStreet(street.get());
-            buildingStreet.setCoordinate(coordinate.get());
-            return buildingStreetRepository.save(buildingStreet);
-        }
-        return null;
-    }
-
-    public BuildingStreet updateBuildingStreet(Long buildingStreetId) {
-        return buildingStreetRepository.findById(buildingStreetId)
-                .map(buildingStreetRepository::save)
-                .orElse(null);
-    }
-
-    public boolean deleteBuildingStreet(Long buildingStreetId) {
-        if (buildingStreetRepository.existsById(buildingStreetId)) {
-            buildingStreetRepository.deleteById(buildingStreetId);
             return true;
         }
         return false;
