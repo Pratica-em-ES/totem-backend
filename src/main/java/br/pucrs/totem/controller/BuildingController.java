@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.BuildingCompany;
-import br.pucrs.totem.entity.BuildingEdge;
 import br.pucrs.totem.service.BuildingService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -106,50 +105,6 @@ public class BuildingController {
             @PathVariable Long id,
             @PathVariable Long buildingCompanyId) {
         boolean deleted = buildingService.deleteBuildingCompany(buildingCompanyId);
-        if (deleted) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-    @GetMapping("/{id}/edges")
-    @Operation(summary = "Get building edges", description = "Retrieve all edges associated with a building")
-    public ResponseEntity<List<BuildingEdge>> getBuildingEdges(@PathVariable Long id) {
-        List<BuildingEdge> edges = buildingService.getBuildingEdges(id);
-        return ResponseEntity.ok(edges);
-    }
-
-    @PostMapping("/{id}/edges")
-    @Operation(summary = "Add edge to building", description = "Associate an edge with a building")
-    public ResponseEntity<BuildingEdge> addEdgeToBuilding(
-            @PathVariable Long id,
-            @RequestParam Long edgeId,
-            @RequestParam(required = false) Long nodeId) {
-        BuildingEdge buildingEdge = buildingService.addEdgeToBuilding(id, edgeId, nodeId);
-        if (buildingEdge != null) {
-            return ResponseEntity.ok(buildingEdge);
-        }
-        return ResponseEntity.badRequest().build();
-    }
-
-    @PutMapping("/{id}/edges/{buildingEdgeId}")
-    @Operation(summary = "Update building edge", description = "Update a building edge association")
-    public ResponseEntity<BuildingEdge> updateBuildingEdge(
-            @PathVariable Long id,
-            @PathVariable Long buildingEdgeId) {
-        BuildingEdge updatedBuildingEdge = buildingService.updateBuildingEdge(buildingEdgeId);
-        if (updatedBuildingEdge != null) {
-            return ResponseEntity.ok(updatedBuildingEdge);
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-    @DeleteMapping("/{id}/edges/{buildingEdgeId}")
-    @Operation(summary = "Remove edge from building", description = "Remove the association between a building and an edge")
-    public ResponseEntity<Void> deleteBuildingEdge(
-            @PathVariable Long id,
-            @PathVariable Long buildingEdgeId) {
-        boolean deleted = buildingService.deleteBuildingEdge(buildingEdgeId);
         if (deleted) {
             return ResponseEntity.noContent().build();
         }

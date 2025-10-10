@@ -14,6 +14,14 @@ public class Building {
     @JoinColumn(name = "node_id")
     private Node node;
 
+    @ManyToOne
+    @JoinColumn(name = "edge_id")
+    private Edge edge;
+
+    @ManyToOne
+    @JoinColumn(name = "edge_node_id")
+    private Node edgeNode;
+
     public Long getId() {
         return id;
     }
@@ -44,5 +52,21 @@ public class Building {
 
     public void setNode(Node node) {
         this.node = node;
+    }
+
+    public Edge getEdge() {
+        return edge;
+    }
+
+    public void setEdge(Edge edge) {
+        this.edge = edge;
+    }
+
+    public Node getEdgeNode() {
+        return edgeNode;
+    }
+
+    public void setEdgeNode(Node edgeNode) {
+        this.edgeNode = edgeNode;
     }
 }
