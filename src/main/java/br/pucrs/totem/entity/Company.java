@@ -1,6 +1,7 @@
 package br.pucrs.totem.entity;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class Company {
@@ -15,6 +16,10 @@ public class Company {
     private String description;
     @Column(length = 50)
     private String building;
+    
+    // Relacionamento N:N com Category através de CategoryCompany
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CategoryCompany> categoryCompanies;
     
     public Long getId() {
         return id;
@@ -54,5 +59,13 @@ public class Company {
 
     public void setBuilding(String building) {
         this.building = building;
+    }
+
+    public List<CategoryCompany> getCategoryCompanies() {
+        return categoryCompanies;
+    }
+
+    public void setCategoryCompanies(List<CategoryCompany> categoryCompanies) {
+        this.categoryCompanies = categoryCompanies;
     }
 }
