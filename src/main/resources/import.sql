@@ -176,33 +176,33 @@ INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 43, 44);
 --
 -------------------------------------------------------
 -- id 1
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('tecnopuc', '/models/tecnopuc.glb', 46, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('tecnopuc', '/models/tecnopuc.glb', 46, 21, 42);
 -- id 2
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('99 A', '/models/99a.glb', 47, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('99 A', '/models/99a.glb', 47, 21, 41);
 -- id 3
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('95 A', '/models/95A.glb', 48, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('95 A', '/models/95A.glb', 48, 7, 15);
 -- id 4
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('97', '/models/97.glb', 49, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('97', '/models/97.glb', 49, 3, 6);
 -- id 5
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('95 C', '/models/95c.glb', 50, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('95 C', '/models/95c.glb', 50, 2, 4);
 -- id 6
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('96 A', '/models/96A.glb', 51, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('96 A', '/models/96A.glb', 51, 19, 37);
 -- id 7
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('96 B/C/D/F', '/models/96bcdf.glb', 52, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('96 B/C/D/F', '/models/96bcdf.glb', 52, 20, 40);
 -- id 8
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('96 J', '/models/96j.glb', 53, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('96 J', '/models/96j.glb', 53, 16, 31);
 -- id 9
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('96 E/H/I/G', '/models/96.glb', 54, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('96 E/H/I/G', '/models/96.glb', 54, 1, 3);
 -- id 10
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('91 B', '/models/91B.glb', 45, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('91 B', '/models/91B.glb', 45, 13, 25);
 -- id 11
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('94', '/models/94.glb', 55, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('94', '/models/94.glb', 55, 14, 28);
 -- id 12
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('93', '/models/93.glb', 56, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('93', '/models/93.glb', 56, 15, 30);
 -- id 13
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('92 A', '/models/92a.glb', 57, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('92 A', '/models/92a.glb', 57, 11, 22);
 -- id 14
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('91 A', '/models/91a.glb', 58, 1, 1);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('91 A', '/models/91a.glb', 58, 12, 23);
 -- -------------------------------------------------------
 --
 -- Empresas
