@@ -19,7 +19,9 @@ public class CompanyService {
     private final BuildingCompanyRepository buildingCompanyRepository;
     private final BuildingRepository buildingRepository;
 
-    public CompanyService(CompanyRepository companyRepository, BuildingCompanyRepository buildingCompanyRepository, BuildingRepository buildingRepository) {
+    public CompanyService(CompanyRepository companyRepository, 
+                         BuildingCompanyRepository buildingCompanyRepository, 
+                         BuildingRepository buildingRepository) {
         this.companyRepository = companyRepository;
         this.buildingCompanyRepository = buildingCompanyRepository;
         this.buildingRepository = buildingRepository;

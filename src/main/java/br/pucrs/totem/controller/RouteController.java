@@ -1,17 +1,10 @@
 package br.pucrs.totem.controller;
 
-import br.pucrs.totem.service.RouteService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
 @RestController
 @RequestMapping("/routes")
 public class RouteController {
-
-    @Autowired
-    private RouteService routeService;
 
     // @GetMapping("/map/{mapId}")
     // public List<RouteDto> getRoutesByMap(@PathVariable Long mapId) {

@@ -378,7 +378,6 @@ INSERT INTO company (name, building, category, description) VALUES ('Bem Medical
 INSERT INTO company (name, building, category, description) VALUES ('iMAPs - Datalakers ', '96', 'Tecnologia', 'A iMaps ajuda TJs, TCEs, MPs, Hospitais, Planos de Saúde e Grandes Organizações a entenderem seus desafios e oportunidades de dados, desenhando e implantando soluções que dão independência aos usuários e segurança para a TI. #People #Data e #Analytics para a resolução de problemas reais.');
 -- id 85
 INSERT INTO company (name, building, category, description) VALUES ('Instituto Eldorado', '99 A', 'Tecnologia', 'Referência em Pesquisa, Desenvolvimento e Inovação no Brasil, o ELDORADO possui mais de 25 anos de experiência na criação de soluções inovadoras para empresas nacionais e internacionais nos segmentos de Tecnologia da Informação e Comunicação, Automotivo, Agro, Energia, Óleo e Gás, Saúde e Indústria 4.0.');
-
 -------------------------------------------------------
 --
 -- Prédios x Empresas
@@ -554,3 +553,378 @@ INSERT INTO building_company (building_id, company_id, localization) VALUES (3, 
 INSERT INTO building_company (building_id, company_id, localization) VALUES (9, 84, 'Bloco: A | Sala: 218');
 -- id 85
 INSERT INTO building_company (building_id, company_id, localization) VALUES (2, 85, 'Bloco: A | Sala: 1301');
+-------------------------------------------------------
+--
+-- Categorias
+--
+-------------------------------------------------------
+-- id 1
+INSERT INTO category (name) VALUES ('Pesquisa');
+-- id 2
+INSERT INTO category (name) VALUES ('Ciências Sociais');
+-- id 3
+INSERT INTO category (name) VALUES ('Energia');
+-- id 4
+INSERT INTO category (name) VALUES ('Inovação');
+-- id 5
+INSERT INTO category (name) VALUES ('Educação');
+-- id 6
+INSERT INTO category (name) VALUES ('Saúde');
+-- id 7
+INSERT INTO category (name) VALUES ('Tecnologia');
+-- id 8
+INSERT INTO category (name) VALUES ('Meio Ambiente');
+-- id 9
+INSERT INTO category (name) VALUES ('Serviços');
+-- id 10
+INSERT INTO category (name) VALUES ('Finanças');
+-- id 11
+INSERT INTO category (name) VALUES ('Consultoria');
+-- id 12
+INSERT INTO category (name) VALUES ('Construção');
+-- id 13
+INSERT INTO category (name) VALUES ('Indústria');
+-- id 14    
+INSERT INTO category (name) VALUES ('Agrícola');
+-- id 15
+INSERT INTO category (name) VALUES ('Entretenimento');
+-- id 16
+INSERT INTO category (name) VALUES ('Comunicação');
+-------------------------------------------------------
+--
+-- Categorias x Empresas
+--
+-------------------------------------------------------
+-- Empresa 1: CAES - Pesquisa, Ciências Sociais
+-- id 1
+INSERT INTO category_company (category_id, company_id) VALUES (1, 1); -- Pesquisa
+-- id 2
+INSERT INTO category_company (category_id, company_id) VALUES (2, 1); -- Ciências Sociais
+-- Empresa 2: CB SOLAR - Pesquisa, Energia
+-- id 3
+INSERT INTO category_company (category_id, company_id) VALUES (1, 2); -- Pesquisa
+-- id 4
+INSERT INTO category_company (category_id, company_id) VALUES (3, 2); -- Energia
+-- Empresa 3: CB SOLAR/NT SOLAR - Pesquisa, Energia
+-- id 5
+INSERT INTO category_company (category_id, company_id) VALUES (1, 3); -- Pesquisa
+-- id 4
+INSERT INTO category_company (category_id, company_id) VALUES (3, 3); -- Energia
+-- Empresa 4: CB SOLAR/NT SOLAR - Pesquisa, Energia
+-- id 5
+INSERT INTO category_company (category_id, company_id) VALUES (1, 4); -- Pesquisa
+-- id 6
+INSERT INTO category_company (category_id, company_id) VALUES (3, 4); -- Energia
+-- Empresa 5: CB SOLAR/NT SOLAR - Pesquisa, Energia
+-- id 7
+INSERT INTO category_company (category_id, company_id) VALUES (1, 5); -- Pesquisa
+-- id 8
+INSERT INTO category_company (category_id, company_id) VALUES (3, 5); -- Energia
+-- Empresa 6: CB SOLAR/NT SOLAR - Pesquisa, Energia
+-- id 9
+INSERT INTO category_company (category_id, company_id) VALUES (1, 6); -- Pesquisa
+-- id 10
+INSERT INTO category_company (category_id, company_id) VALUES (3, 6); -- Energia
+-- Empresa 7: CI - Inovação, Educação
+-- id 11
+INSERT INTO category_company (category_id, company_id) VALUES (4, 7); -- Inovação
+-- id 12
+INSERT INTO category_company (category_id, company_id) VALUES (5, 7); -- Educação
+-- Empresa 8: CPBMF - Pesquisa, Saúde
+-- id 13
+INSERT INTO category_company (category_id, company_id) VALUES (1, 8); -- Pesquisa
+-- id 14
+INSERT INTO category_company (category_id, company_id) VALUES (6, 8); -- Saúde
+-- Empresa 9: CPBMF - Pesquisa, Saúde
+-- id 15
+INSERT INTO category_company (category_id, company_id) VALUES (1, 9); -- Pesquisa
+-- id 16
+INSERT INTO category_company (category_id, company_id) VALUES (6, 9); -- Saúde
+-- Empresa 10: Human Factors - Pesquisa, Saúde
+-- id 17
+INSERT INTO category_company (category_id, company_id) VALUES (1, 10); -- Pesquisa
+-- id 18
+INSERT INTO category_company (category_id, company_id) VALUES (6, 10); -- Saúde
+-- Empresa 11: IDEIA - Inovação, Tecnologia
+-- id 19
+INSERT INTO category_company (category_id, company_id) VALUES (4, 11); -- Inovação
+-- id 20
+INSERT INTO category_company (category_id, company_id) VALUES (7, 11); -- Tecnologia
+-- Empresa 12: IPR - Pesquisa, Meio Ambiente
+-- id 21
+INSERT INTO category_company (category_id, company_id) VALUES (1, 12); -- Pesquisa
+-- id 22
+INSERT INTO category_company (category_id, company_id) VALUES (8, 12); -- Meio Ambiente
+-- Empresa 13: LAIF - Saúde
+-- id 23
+INSERT INTO category_company (category_id, company_id) VALUES (6, 13); -- Saúde
+-- Empresa 14: Pipac - Tecnologia
+-- id 24
+INSERT INTO category_company (category_id, company_id) VALUES (7, 14); -- Tecnologia
+-- Empresa 15: Techniken - Tecnologia
+-- id 25
+INSERT INTO category_company (category_id, company_id) VALUES (7, 15); -- Tecnologia
+-- Empresa 16: ADCE - Serviços
+-- id 26
+INSERT INTO category_company (category_id, company_id) VALUES (9, 16); -- Serviços
+-- Empresa 17: ADOC Tecnologia - Tecnologia
+-- id 27
+INSERT INTO category_company (category_id, company_id) VALUES (7, 17); -- Tecnologia
+-- Empresa 18: Benksys - Tecnologia
+-- id 28
+INSERT INTO category_company (category_id, company_id) VALUES (7, 18); -- Tecnologia
+-- Empresa 19: Bluemetrics - Tecnologia
+-- id 29
+INSERT INTO category_company (category_id, company_id) VALUES (7, 19); -- Tecnologia
+-- Empresa 20: Bmodal - Tecnologia
+-- id 30
+INSERT INTO category_company (category_id, company_id) VALUES (7, 20); -- Tecnologia
+-- Empresa 21: Capital Generations - Finanças
+-- id 31
+INSERT INTO category_company (category_id, company_id) VALUES (10, 21); -- Finanças
+-- Empresa 22: Coera - Meio Ambiente
+-- id 32
+INSERT INTO category_company (category_id, company_id) VALUES (8, 22); -- Meio Ambiente
+-- Empresa 23: DB Services - Tecnologia
+-- id 33
+INSERT INTO category_company (category_id, company_id) VALUES (7, 23); -- Tecnologia
+-- Empresa 24: DGM - Finanças
+-- id 34
+INSERT INTO category_company (category_id, company_id) VALUES (10, 24); -- Finanças
+-- Empresa 25: EDUCATransforma - Educação
+-- id 35
+INSERT INTO category_company (category_id, company_id) VALUES (5, 25); -- Educação
+-- Empresa 26: Flesch Tech - Tecnologia
+-- id 36
+INSERT INTO category_company (category_id, company_id) VALUES (7, 26); -- Tecnologia
+-- Empresa 27: Fundação Gerações - Serviços
+-- id 37
+INSERT INTO category_company (category_id, company_id) VALUES (9, 27); -- Serviços
+-- Empresa 28: Govtech Lab - Tecnologia, Inovação
+-- id 38
+INSERT INTO category_company (category_id, company_id) VALUES (7, 28); -- Tecnologia
+-- id 39
+INSERT INTO category_company (category_id, company_id) VALUES (4, 28); -- Inovação
+-- Empresa 29: Green Thinking - Meio Ambiente
+-- id 40
+INSERT INTO category_company (category_id, company_id) VALUES (8, 29); -- Meio Ambiente
+-- Empresa 30: Holpeful - Meio Ambiente
+-- id 41
+INSERT INTO category_company (category_id, company_id) VALUES (8, 30); -- Meio Ambiente
+-- Empresa 31: Hub Formô - Tecnologia
+-- id 42
+INSERT INTO category_company (category_id, company_id) VALUES (7, 31); -- Tecnologia
+-- Empresa 32: Hulpi - Tecnologia
+-- id 43
+INSERT INTO category_company (category_id, company_id) VALUES (7, 32); -- Tecnologia
+-- Empresa 33: IGCC - Saúde
+-- id 44
+INSERT INTO category_company (category_id, company_id) VALUES (6, 33); -- Saúde
+-- Empresa 34: IXL Center - Consultoria, Inovação
+-- id 45
+INSERT INTO category_company (category_id, company_id) VALUES (11, 34); -- Consultoria
+-- id 46
+INSERT INTO category_company (category_id, company_id) VALUES (4, 34); -- Inovação
+-- Empresa 35: LeV Compliance - Consultoria, Inovação
+-- id 47
+INSERT INTO category_company (category_id, company_id) VALUES (11, 35); -- Consultoria
+-- id 48
+INSERT INTO category_company (category_id, company_id) VALUES (4, 35); -- Inovação
+-- Empresa 36: Movimento ODS RS - Meio Ambiente
+-- id 49
+INSERT INTO category_company (category_id, company_id) VALUES (8, 36); -- Meio Ambiente
+-- Empresa 37: SISMU Software - Tecnologia
+-- id 50
+INSERT INTO category_company (category_id, company_id) VALUES (7, 37); -- Tecnologia
+-- Empresa 38: NAVI - Tecnologia
+-- id 51
+INSERT INTO category_company (category_id, company_id) VALUES (7, 38); -- Tecnologia
+-- Empresa 39: Bee Touch - Saúde, Tecnologia
+-- id 52
+INSERT INTO category_company (category_id, company_id) VALUES (6, 39); -- Saúde
+-- id 53
+INSERT INTO category_company (category_id, company_id) VALUES (7, 39); -- Tecnologia
+-- Empresa 40: Energia das Coisas - Energia
+-- id 54
+INSERT INTO category_company (category_id, company_id) VALUES (3, 40); -- Energia
+-- Empresa 41: GoCognify - Tecnologia
+-- id 55
+INSERT INTO category_company (category_id, company_id) VALUES (7, 41); -- Tecnologia
+-- Empresa 42: Ibi Ama - Tecnologia
+-- id 56
+INSERT INTO category_company (category_id, company_id) VALUES (7, 42); -- Tecnologia
+-- Empresa 43: Instituto Ceos - Saúde
+-- id 57
+INSERT INTO category_company (category_id, company_id) VALUES (6, 43); -- Saúde
+-- Empresa 44: S Solutions - Tecnologia
+-- id 58
+INSERT INTO category_company (category_id, company_id) VALUES (7, 44); -- Tecnologia
+-- Empresa 45: Symcore - Tecnologia
+-- id 59
+INSERT INTO category_company (category_id, company_id) VALUES (7, 45); -- Tecnologia
+-- Empresa 46: Trade Squad - Consultoria
+-- id 60
+INSERT INTO category_company (category_id, company_id) VALUES (11, 46); -- Consultoria
+-- Empresa 47: Vent Digital - Tecnologia
+-- id 61
+INSERT INTO category_company (category_id, company_id) VALUES (7, 47); -- Tecnologia
+-- Empresa 48: Wisidea - Consultoria
+-- id 62
+INSERT INTO category_company (category_id, company_id) VALUES (11, 48); -- Consultoria
+-- Empresa 49: 4lugo - Tecnologia, Serviços
+-- id 63
+INSERT INTO category_company (category_id, company_id) VALUES (7, 49); -- Tecnologia
+-- id 64
+INSERT INTO category_company (category_id, company_id) VALUES (9, 49); -- Serviços
+-- Empresa 50: AGS - Serviços, Consultoria
+-- id 65
+INSERT INTO category_company (category_id, company_id) VALUES (9, 50); -- Serviços
+-- id 66
+INSERT INTO category_company (category_id, company_id) VALUES (11, 50); -- Consultoria
+-- Empresa 51: BeasyBox - Tecnologia
+-- id 67
+INSERT INTO category_company (category_id, company_id) VALUES (7, 51); -- Tecnologia
+-- Empresa 52: Capital Generations - Tecnologia
+-- id 68
+INSERT INTO category_company (category_id, company_id) VALUES (7, 52); -- Tecnologia
+-- Empresa 53: Exactor Sindicos - Consultoria, Construção
+-- id 69
+INSERT INTO category_company (category_id, company_id) VALUES (11, 53); -- Consultoria
+-- id 70
+INSERT INTO category_company (category_id, company_id) VALUES (12, 53); -- Construção
+-- Empresa 54: Glow - Serviços, Consultoria
+-- id 71
+INSERT INTO category_company (category_id, company_id) VALUES (9, 54); -- Serviços
+-- id 72
+INSERT INTO category_company (category_id, company_id) VALUES (11, 54); -- Consultoria
+-- Empresa 55: Hero - Tecnologia, Indústria
+-- id 73
+INSERT INTO category_company (category_id, company_id) VALUES (7, 55); -- Tecnologia
+-- id 74
+INSERT INTO category_company (category_id, company_id) VALUES (13, 55); -- Indústria
+-- Empresa 56: Junior Achievement - Serviços, Consultoria, Educação
+-- id 75
+INSERT INTO category_company (category_id, company_id) VALUES (9, 56); -- Serviços
+-- id 76
+INSERT INTO category_company (category_id, company_id) VALUES (11, 56); -- Consultoria
+-- id 77
+INSERT INTO category_company (category_id, company_id) VALUES (5, 56); -- Educação
+-- Empresa 57: Legacy - Serviços, Consultoria, Educação
+-- id 78
+INSERT INTO category_company (category_id, company_id) VALUES (9, 57); -- Serviços
+-- id 79
+INSERT INTO category_company (category_id, company_id) VALUES (11, 57); -- Consultoria
+-- id 80
+INSERT INTO category_company (category_id, company_id) VALUES (5, 57); -- Educação
+-- Empresa 58: PainelConstru - Indústria, Construção
+-- id 81
+INSERT INTO category_company (category_id, company_id) VALUES (13, 58); -- Indústria
+-- id 82
+INSERT INTO category_company (category_id, company_id) VALUES (12, 58); -- Construção
+-- Empresa 59: Agronômica - Agrícola, Tecnologia
+-- id 83
+INSERT INTO category_company (category_id, company_id) VALUES (14, 59); -- Agrícola
+-- id 84
+INSERT INTO category_company (category_id, company_id) VALUES (7, 59); -- Tecnologia
+-- Empresa 60: Agropago - Agrícola, Tecnologia
+-- id 85
+INSERT INTO category_company (category_id, company_id) VALUES (14, 60); -- Agrícola
+-- id 86
+INSERT INTO category_company (category_id, company_id) VALUES (7, 60); -- Tecnologia
+-- Empresa 61: BACH VILLAR - Serviços, Consultoria, Educação
+-- id 87
+INSERT INTO category_company (category_id, company_id) VALUES (9, 61); -- Serviços
+-- id 88
+INSERT INTO category_company (category_id, company_id) VALUES (11, 61); -- Consultoria
+-- id 89
+INSERT INTO category_company (category_id, company_id) VALUES (5, 61); -- Educação
+-- Empresa 62: Base Agro - Agrícola, Tecnologia
+-- id 90
+INSERT INTO category_company (category_id, company_id) VALUES (14, 62); -- Agrícola
+-- id 91
+INSERT INTO category_company (category_id, company_id) VALUES (7, 62); -- Tecnologia
+-- Empresa 63: Bycrop - Agrícola, Tecnologia
+-- id 92
+INSERT INTO category_company (category_id, company_id) VALUES (14, 63); -- Agrícola
+-- id 93
+INSERT INTO category_company (category_id, company_id) VALUES (7, 63); -- Tecnologia
+-- Empresa 64: Decola - Tecnologia
+-- id 94
+INSERT INTO category_company (category_id, company_id) VALUES (7, 64); -- Tecnologia
+-- Empresa 65: Meta Safety - Tecnologia, Educação
+-- id 95
+INSERT INTO category_company (category_id, company_id) VALUES (7, 65); -- Tecnologia
+-- id 96
+INSERT INTO category_company (category_id, company_id) VALUES (5, 65); -- Educação
+-- Empresa 66: Sucesu RS - Tecnologia
+-- id 97
+INSERT INTO category_company (category_id, company_id) VALUES (7, 66); -- Tecnologia
+-- Empresa 67: Bee Touch - Tecnologia, Saúde
+-- id 98
+INSERT INTO category_company (category_id, company_id) VALUES (7, 67); -- Tecnologia
+-- id 99
+INSERT INTO category_company (category_id, company_id) VALUES (6, 67); -- Saúde
+-- Empresa 68: Preto no Branco - Tecnologia
+-- id 100
+INSERT INTO category_company (category_id, company_id) VALUES (7, 68); -- Tecnologia
+-- Empresa 69: 2Cloud Tecnologia - Tecnologia
+-- id 101
+INSERT INTO category_company (category_id, company_id) VALUES (7, 69); -- Tecnologia
+-- Empresa 70: 4all - Tecnologia
+-- id 102
+INSERT INTO category_company (category_id, company_id) VALUES (7, 70); -- Tecnologia
+-- Empresa 71: Apple Developer Academy - Tecnologia, Educação
+-- id 103
+INSERT INTO category_company (category_id, company_id) VALUES (7, 71); -- Tecnologia
+-- id 104
+INSERT INTO category_company (category_id, company_id) VALUES (5, 71); -- Educação
+-- Empresa 72: Aquiris/EPIC Games - Tecnologia, Entretenimento
+-- id 105
+INSERT INTO category_company (category_id, company_id) VALUES (7, 72); -- Tecnologia
+-- id 106
+INSERT INTO category_company (category_id, company_id) VALUES (15, 72); -- Entretenimento
+-- Empresa 73: DBServer - Tecnologia
+-- id 107
+INSERT INTO category_company (category_id, company_id) VALUES (7, 73); -- Tecnologia
+-- Empresa 74: E-core - Tecnologia
+-- id 108
+INSERT INTO category_company (category_id, company_id) VALUES (7, 74); -- Tecnologia
+-- Empresa 75: EnSilica - Tecnologia, Indústria
+-- id 109
+INSERT INTO category_company (category_id, company_id) VALUES (7, 75); -- Tecnologia
+-- id 110
+INSERT INTO category_company (category_id, company_id) VALUES (13, 75); -- Indústria
+-- Empresa 76: Globo.com - Comunicação, Tecnologia, Entretenimento
+-- id 111
+INSERT INTO category_company (category_id, company_id) VALUES (16, 76); -- Comunicação
+-- id 112
+INSERT INTO category_company (category_id, company_id) VALUES (7, 76); -- Tecnologia
+-- id 113
+INSERT INTO category_company (category_id, company_id) VALUES (15, 76); -- Entretenimento
+-- Empresa 77: Grupo NGX - Tecnologia
+-- id 114
+INSERT INTO category_company (category_id, company_id) VALUES (7, 77); -- Tecnologia
+-- Empresa 78: Grupo Panvel - Saúde
+-- id 115
+INSERT INTO category_company (category_id, company_id) VALUES (6, 78); -- Saúde
+-- Empresa 79: Grupo RPH - Saúde
+-- id 116
+INSERT INTO category_company (category_id, company_id) VALUES (6, 79); -- Saúde
+-- Empresa 80: HardFun - Educação
+-- id 117
+INSERT INTO category_company (category_id, company_id) VALUES (5, 80); -- Educação
+-- Empresa 81: HPE - Tecnologia
+-- id 118
+INSERT INTO category_company (category_id, company_id) VALUES (7, 81); -- Tecnologia
+-- Empresa 82: HPI - Tecnologia
+-- id 119
+INSERT INTO category_company (category_id, company_id) VALUES (7, 82); -- Tecnologia
+-- Empresa 83: Bem Medical - Saúde
+-- id 120
+INSERT INTO category_company (category_id, company_id) VALUES (6, 83); -- Saúde
+-- Empresa 84: iMAPs - Tecnologia
+-- id 121
+INSERT INTO category_company (category_id, company_id) VALUES (7, 84); -- Tecnologia
+-- Empresa 85: Instituto Eldorado - Tecnologia
+-- id 122
+INSERT INTO category_company (category_id, company_id) VALUES (7, 85); -- Tecnologia
