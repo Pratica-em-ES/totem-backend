@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RouteService {
+    
     // Implemente métodos conforme necessário
 
     // public RouteDto getRoutesByMap(Long mapId) {
@@ -15,4 +16,6 @@ public class RouteService {
     //     // Implementação básica de exemplo
     //     return "getRouteById: " + id;
     // }
+
+
 }
