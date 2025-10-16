@@ -39,24 +39,10 @@ public class CategoryController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/distinct")
-    @Operation(summary = "Get distinct categories", description = "Retrieve all distinct category names")
-    public ResponseEntity<List<String>> getDistinctCategories() {
-        List<String> categories = categoryService.getAllDistinctCategories();
-        return ResponseEntity.ok(categories);
-    }
-
     @GetMapping("/{id}/companies")
     @Operation(summary = "Get companies by category", description = "Retrieve all companies associated with a specific category")
     public ResponseEntity<List<Company>> getCompaniesByCategory(@PathVariable Long id) {
         List<Company> companies = categoryService.getCompaniesByCategoryId(id);
-        return ResponseEntity.ok(companies);
-    }
-
-    @GetMapping("/search/companies")
-    @Operation(summary = "Search companies by category name", description = "Search companies by category name")
-    public ResponseEntity<List<Company>> searchCompaniesByCategoryName(@RequestParam String name) {
-        List<Company> companies = categoryService.getCompaniesByCategory(name);
         return ResponseEntity.ok(companies);
     }
 }
