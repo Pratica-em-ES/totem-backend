@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -31,21 +33,23 @@ public class RouteService {
     }
 
     /**
-     * Finds the minimum path to a building and returns an ordered list of edges.
+     * Finds the minimum path to a building and returns an ordered list of node IDs.
      *
      * @param startNodeId The ID of the starting node.
      * @param buildingId  The ID of the destination building.
-     * @return An ordered list of edges representing the shortest path.
+     * @return An ordered list of node IDs representing the shortest path.
      */
-    public List<Edge> findMinimumPathToBuilding(Long startBuildingId, Long buildingId) {
+    public List<Long> findMinimumPathToBuilding(Long startNodeId, Long buildingId) {
+
+        Building startBuilding = buildingRepository.findById(startNodeId)
+                .orElseThrow(() -> new IllegalArgumentException("Start building not found"));
+
         // Retrieve the destination building
         Building destinationBuilding = buildingRepository.findById(buildingId)
                 .orElseThrow(() -> new IllegalArgumentException("Building not found"));
 
-        Building fromBuilding = buildingRepository.findById(startBuildingId)
-                .orElseThrow(() -> new IllegalArgumentException("Building not found"));
         // Get the destination node from the building
-        Node destinationNode = destinationBuilding.getNode();
+        Node destinationNode = destinationBuilding.getEdgeNode();
         if (destinationNode == null) {
             throw new IllegalArgumentException("Building does not have an associated node");
         }
@@ -54,19 +58,7 @@ public class RouteService {
         Map<Long, List<Edge>> adjacencyList = buildGraph();
 
         // Find the shortest path using Dijkstra's algorithm
-        List<Long> shortestPathNodeIds = dijkstra(fromBuilding.getEdgeNode().getId(), destinationBuilding.getEdgeNode().getId(), adjacencyList);
-
-        // Convert the node path to an edge path
-        return convertNodePathToEdgePath(shortestPathNodeIds, adjacencyList);
-    }
-
-    public List<Integer> findMinimumPathToBuildingIds(Long startNodeId, Long buildingId) {
-        List<Edge> edgePath = findMinimumPathToBuilding(startNodeId, buildingId);
-        List<Integer> edgeIds = new ArrayList<>();
-        for (Edge edge : edgePath) {
-            edgeIds.add(edge.getId().intValue());
-        }
-        return edgeIds;
+        return dijkstra(startBuilding.getEdgeNode().getId(), destinationNode.getId(), adjacencyList);
     }
 
     /**
@@ -75,7 +67,7 @@ public class RouteService {
     private Map<Long, List<Edge>> buildGraph() {
         Map<Long, List<Edge>> adjacencyList = new HashMap<>();
 
-        // Load all edges and nodes
+        // Load all edges
         List<Edge> edges = edgeRepository.findAll();
 
         // Populate the adjacency list
@@ -106,32 +98,41 @@ public class RouteService {
         PriorityQueue<NodeDistance> priorityQueue = new PriorityQueue<>(Comparator.comparingDouble(NodeDistance::getDistance));
 
         // Initialize distances
-        for (Long nodeId : adjacencyList.keySet()) {
+        for (Long nodeId : nodeRepository.findAll().stream().map(Node::getId).toList()) {
             distances.put(nodeId, Double.MAX_VALUE);
         }
         distances.put(startNodeId, 0.0);
 
         priorityQueue.add(new NodeDistance(startNodeId, 0.0));
 
-        while (!priorityQueue.isEmpty()) {
-            NodeDistance current = priorityQueue.poll();
-            Long currentNodeId = current.getNodeId();
+        Set<Long> visited = new HashSet<>();
 
-            if (currentNodeId.equals(destinationNodeId)) {
-                break;
-            }
+while (!priorityQueue.isEmpty()) {
+    NodeDistance current = priorityQueue.poll();
+    Long currentNodeId = current.getNodeId();
 
-            for (Edge edge : adjacencyList.getOrDefault(currentNodeId, Collections.emptyList())) {
-                Long neighborNodeId = edge.getNodeA().getId().equals(currentNodeId) ? edge.getNodeB().getId() : edge.getNodeA().getId();
-                double newDistance = distances.get(currentNodeId) + edge.getWidth();
+    // Skip if we've already processed this node with a shorter distance
+    if (visited.contains(currentNodeId)) continue;
+    visited.add(currentNodeId);
 
-                if (newDistance < distances.get(neighborNodeId)) {
-                    distances.put(neighborNodeId, newDistance);
-                    previousNodes.put(neighborNodeId, currentNodeId);
-                    priorityQueue.add(new NodeDistance(neighborNodeId, newDistance));
-                }
-            }
+    if (currentNodeId.equals(destinationNodeId)) {
+        break;
+    }
+
+    for (Edge edge : adjacencyList.getOrDefault(currentNodeId, Collections.emptyList())) {
+        Long neighborNodeId = edge.getNodeA().getId().equals(currentNodeId)
+            ? edge.getNodeB().getId()
+            : edge.getNodeA().getId();
+
+        double newDistance = distances.get(currentNodeId) + edge.getWidth();
+
+        if (newDistance < distances.get(neighborNodeId)) {
+            distances.put(neighborNodeId, newDistance);
+            previousNodes.put(neighborNodeId, currentNodeId);
+            priorityQueue.add(new NodeDistance(neighborNodeId, newDistance));
         }
+    }
+}
 
         // Reconstruct the path
         List<Long> path = new ArrayList<>();
@@ -141,29 +142,6 @@ public class RouteService {
         Collections.reverse(path);
 
         return path.isEmpty() || !path.get(0).equals(startNodeId) ? Collections.emptyList() : path;
-    }
-
-    /**
-     * Converts a list of node IDs into a list of edges.
-     */
-    private List<Edge> convertNodePathToEdgePath(List<Long> nodePath, Map<Long, List<Edge>> adjacencyList) {
-        List<Edge> edgePath = new ArrayList<>();
-
-        for (int i = 0; i < nodePath.size() - 1; i++) {
-            Long currentNodeId = nodePath.get(i);
-            Long nextNodeId = nodePath.get(i + 1);
-
-            // Find the edge connecting the current node to the next node
-            for (Edge edge : adjacencyList.getOrDefault(currentNodeId, Collections.emptyList())) {
-                if ((edge.getNodeA().getId().equals(currentNodeId) && edge.getNodeB().getId().equals(nextNodeId)) ||
-                        (edge.getNodeB().getId().equals(currentNodeId) && edge.getNodeA().getId().equals(nextNodeId))) {
-                    edgePath.add(edge);
-                    break;
-                }
-            }
-        }
-
-        return edgePath;
     }
 
     /**

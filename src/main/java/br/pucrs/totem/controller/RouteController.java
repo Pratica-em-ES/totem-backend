@@ -27,9 +27,9 @@ public class RouteController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<List<Integer>> getRouteById(@PathVariable Long id) {
+    public ResponseEntity<List<Long>> getRouteById(@PathVariable Long id) {
 
-        List<Integer> path = this.routeService.findMinimumPathToBuildingIds(2L, id);
+        List<Long> path = this.routeService.findMinimumPathToBuilding(2L, id);
         System.out.println(path);
         if (path == null) {
             return ResponseEntity.notFound().build();
