@@ -125,62 +125,99 @@ INSERT INTO node (x, y) VALUES (-19.6994, 11.3027);
 --
 -------------------------------------------------------
 -- id 1
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 2, 3);
--- id 2
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 4, 5);
--- id 3
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 6, 7);
--- id 4
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 8, 9);
--- id 5
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 10, 11);
--- id 6
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 12, 13);
--- id 7
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 14, 15);
--- id 8
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 17);
--- id 9
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (12, 18, 19);
--- id 10
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 20, 21);
--- id 11
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 21, 22);
--- id 12
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 23, 24);
--- id 13
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 25, 26);
--- id 14
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 27, 28);
--- id 15
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 29, 30);
--- id 16
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 31, 32);
--- id 17
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 33, 34);
--- id 18
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 35, 36);
--- id 19
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 37, 38);
--- id 20
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 39, 40);
--- id 21
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 41, 42);
--- id 22
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 42, 43);
--- id 23
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 43, 44);
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 2, 3);
+-- -- id 2
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 4, 5);
+-- -- id 3
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 6, 7);
+-- -- id 4
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 8, 9);
+-- -- id 5
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 10, 11);
+-- -- id 6
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 12, 13);
+-- -- id 7
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 14, 15);
+-- -- id 8
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 17);
+-- -- id 9
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (12, 18, 19);
+-- -- id 10
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 20, 21);
+-- -- id 11
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 21, 22);
+-- -- id 12
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 23, 24);
+-- -- id 13
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 25, 26);
+-- -- id 14
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 27, 28);
+-- -- id 15
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 29, 30);
+-- -- id 16
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 31, 32);
+-- -- id 17
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 33, 34);
+-- -- id 18
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 35, 36);
+-- -- id 19
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 37, 38);
+-- -- id 20
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 39, 40);
+-- -- id 21
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 41, 42);
+-- -- id 22
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 42, 43);
+-- -- id 23
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 43, 44);
+-- -- id 24 
+-- INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 14, 41);
+
+-- Conecta o início (Nó 1) ao primeiro segmento (Nó 2)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 1, 2);
+
+-- Encadeia todos os 23 segmentos originais em uma única linha
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 2, 3);   -- (Fim do 1) -> (Início do 2)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 3, 4);   -- (Fim do 2) -> (Início do 3)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 4, 5);   -- (Fim do 3) -> (Início do 4)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 5, 6);  -- (Fim do 4) -> (Início do 5)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 6, 7); -- (Fim do 5) -> (Início do 6)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 7, 8); -- (Fim do 6) -> (Início do 7)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 8, 9); -- (Fim do 7) -> (Início do 8)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 9, 10); -- (Fim do 8) -> (Início do 9)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 10, 11); -- (Fim do 9) -> (Início do 10)
+-- O segmento 10 (20-21) e 11 (21-22) já estão conectados pelo Nó 21.
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 11, 12); -- (Fim do 11) -> (Início do 12)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 12, 13); -- (Fim do 12) -> (Início do 13)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 13, 14); -- (Fim do 13) -> (Início do 14)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 14, 15); -- (Fim do 14) -> (Início do 15)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 15, 16); -- (Fim do 15) -> (Início do 16)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 17); -- (Fim do 16) -> (Início do 17)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 17, 18); -- (Fim do 17) -> (Início do 18)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 18, 19); -- (Fim do 18) -> (Início do 19)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 19, 20); -- (Fim do 19) -> (Início do 20)
+-- Os segmentos 21 (41-42), 22 (42-43) e 23 (43-44) já estão conectados.
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 21, 22); -- (Fim do 20) -> (Início do 21)
+
+-- Fecha o círculo, conectando o último nó (44) de volta ao início (Nó 1)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 41, 4);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 47, 1);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 48, 3);
+
+
+
+
 -------------------------------------------------------
 --
 -- Prédios
 --
 -------------------------------------------------------
 -- id 1
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('tecnopuc', '/models/tecnopuc.glb', 46, 21, 42);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('tecnopuc', '/models/tecnopuc.glb', 46, 3, 42);
 -- id 2
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('99 A', '/models/99a.glb', 47, 21, 41);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('99 A', '/models/99a.glb', 47, 2, 41);
 -- id 3
-INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('95 A', '/models/95A.glb', 48, 7, 15);
+INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('95 A', '/models/95A.glb', 48, 3, 15);
 -- id 4
 INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES ('97', '/models/97.glb', 49, 3, 6);
 -- id 5
@@ -211,7 +248,7 @@ INSERT INTO building (name, model_path, node_id, edge_id, edge_node_id) VALUES (
 -- id 1
 INSERT INTO company (name, building, category, description) VALUES ('CAES - Centro de Análises Econômicas e Sociais', '96', 'Pesquisa, Ciências Sociais', 'O CAES (Centro de Análises Econômicas e Sociais) é uma estrutura de pesquisa da PUCRS com sede em Porto Alegre, RS. Este centro está envolvido em pesquisas voltadas para o avanço do desenvolvimento científico, tecnológico, econômico e social do Brasil. Ele também participa de iniciativas como a produção de documentários sobre projetos sociais bem-sucedidos em comunidades de risco, como o documentário "Infância Falada", em parceria com a produtora Conta pra Mim Filmes. ');
 -- id 2
-INSERT INTO company (name, building, category, description) VALUES ('CB SOLAR - Laboratório de Classif. de Módulos Fotovoltaicos - Centro de PeD em FÍSICA', '96', 'Pesquisa, Energia', 'A missão do CB Solar é promover programas, projetos, pesquisas e desenvolvimento científico e tecnológico com foco no aproveitamento da energia solar para produzir energia elétrica, bem como, promover a capacitação e o treinamento de pessoal qualificado nesta área. Tem como objetivos principais: 1 – desenvolver novas tecnologias e/ou processos para fabricação de células solares de silício de alta eficiência e/ou baixo custo;  2 – desenvolver módulos fotovoltaicos convencionais e concentradores;  3 – projetar e analisar sistemas fotovoltaicos isolados ou interligados à rede elétrica;  4 – desenvolver equipamentos de produção de células solares e de módulos fotovoltaicos;  5 – caracterizar eletricamente células solares e módulos fotovoltaicos, considerando as normas estabelecidas.  ');
+INSERT INTO company (name, building, category, description) VALUES ('CBF SOLAR - Laboratório de Classif. de Módulos Fotovoltaicos - Centro de PeD em FÍSICA', '96', 'Pesquisa, Energia', 'A missão do CB Solar é promover programas, projetos, pesquisas e desenvolvimento científico e tecnológico com foco no aproveitamento da energia solar para produzir energia elétrica, bem como, promover a capacitação e o treinamento de pessoal qualificado nesta área. Tem como objetivos principais: 1 – desenvolver novas tecnologias e/ou processos para fabricação de células solares de silício de alta eficiência e/ou baixo custo;  2 – desenvolver módulos fotovoltaicos convencionais e concentradores;  3 – projetar e analisar sistemas fotovoltaicos isolados ou interligados à rede elétrica;  4 – desenvolver equipamentos de produção de células solares e de módulos fotovoltaicos;  5 – caracterizar eletricamente células solares e módulos fotovoltaicos, considerando as normas estabelecidas.  ');
 -- id 3
 INSERT INTO company (name, building, category, description) VALUES ('CB SOLAR/NT SOLAR - Contato acesso e entrega de materiais', '96', 'Pesquisa, Energia', 'A missão do CB Solar é promover programas, projetos, pesquisas e desenvolvimento científico e tecnológico com foco no aproveitamento da energia solar para produzir energia elétrica, bem como, promover a capacitação e o treinamento de pessoal qualificado nesta área. Tem como objetivos principais: 1 – desenvolver novas tecnologias e/ou processos para fabricação de células solares de silício de alta eficiência e/ou baixo custo;  2 – desenvolver módulos fotovoltaicos convencionais e concentradores;  3 – projetar e analisar sistemas fotovoltaicos isolados ou interligados à rede elétrica;  4 – desenvolver equipamentos de produção de células solares e de módulos fotovoltaicos;  5 – caracterizar eletricamente células solares e módulos fotovoltaicos, considerando as normas estabelecidas.  ');
 -- id 4
@@ -928,3 +965,4 @@ INSERT INTO category_company (category_id, company_id) VALUES (7, 84); -- Tecnol
 -- Empresa 85: Instituto Eldorado - Tecnologia
 -- id 122
 INSERT INTO category_company (category_id, company_id) VALUES (7, 85); -- Tecnologia
+
