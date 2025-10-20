@@ -110,4 +110,24 @@ public class CompanyController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @GetMapping("/{id}/image")
+    @Operation(summary = "Get company image path", description = "Get the image path of a specific company")
+    public ResponseEntity<String> getCompanyImagePath(@PathVariable Long id) {
+        return companyService.getCompanyById(id)
+                .map(company -> ResponseEntity.ok(company.getImagePath()))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}/image")
+    @Operation(summary = "Update company image path", description = "Update the image path of a specific company")
+    public ResponseEntity<Company> updateCompanyImagePath(
+            @PathVariable Long id,
+            @RequestParam String imagePath) {
+        Company updatedCompany = companyService.updateCompanyImagePath(id, imagePath);
+        if (updatedCompany != null) {
+            return ResponseEntity.ok(updatedCompany);
+        }
+        return ResponseEntity.notFound().build();
+    }
 }
