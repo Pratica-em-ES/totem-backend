@@ -15,6 +15,7 @@ public class Company {
     private String description;
     @Column(length = 50)
     private String building;
+    private String image_path;
     
     public Long getId() {
         return id;
@@ -54,5 +55,13 @@ public class Company {
 
     public void setBuilding(String building) {
         this.building = building;
+    }
+
+    public String getImagePath() {
+        return image_path;
+    }
+
+    public void setImagePath(String image_path) {
+        this.image_path = image_path;
     }
 }

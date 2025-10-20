@@ -46,6 +46,16 @@ public class CompanyService {
                     company.setCategory(companyDetails.getCategory());
                     company.setDescription(companyDetails.getDescription());
                     company.setBuilding(companyDetails.getBuilding());
+                    company.setImagePath(companyDetails.getImagePath());
+                    return companyRepository.save(company);
+                })
+                .orElse(null);
+    }
+
+    public Company updateCompanyImagePath(Long id, String imagePath) {
+        return companyRepository.findById(id)
+                .map(company -> {
+                    company.setImagePath(imagePath);
                     return companyRepository.save(company);
                 })
                 .orElse(null);
@@ -99,4 +109,6 @@ public class CompanyService {
     public List<BuildingCompany> getCompanyBuildings(Long companyId) {
         return buildingCompanyRepository.findByCompanyId(companyId);
     }
+
+
 }
