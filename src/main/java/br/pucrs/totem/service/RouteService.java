@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
 
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
 import br.pucrs.totem.entity.Building;
@@ -68,22 +69,46 @@ public class RouteService {
         Map<Long, List<Edge>> adjacencyList = new HashMap<>();
 
         // Load all edges
-        List<Edge> edges = edgeRepository.findAll();
+        List<Pair<Edge, Node>> pairs = buildingRepository.findAll().stream()
+            .map(building -> Pair.of(building.getEdge(), building.getEdgeNode()))
+            .toList();
 
         // Populate the adjacency list
-        for (Edge edge : edges) {
+        for (Pair<Edge, Node> pair : pairs) {
+            Edge edge = pair.getFirst();
+            Node node = pair.getSecond();
+
             Node nodeA = edge.getNodeA();
             Node nodeB = edge.getNodeB();
 
-            // Calculate the Euclidean distance as the weight
-            double distance = calculateEuclideanDistance(nodeA, nodeB);
-            edge.setWidth(distance); // Update the edge's width with the calculated distance
-
             adjacencyList.putIfAbsent(nodeA.getId(), new ArrayList<>());
             adjacencyList.putIfAbsent(nodeB.getId(), new ArrayList<>());
+            adjacencyList.putIfAbsent(node.getId(), new ArrayList<>());
 
-            adjacencyList.get(nodeA.getId()).add(edge);
-            adjacencyList.get(nodeB.getId()).add(edge);
+            Edge newEdge;
+            newEdge = new Edge();
+            newEdge.setId(edge.getId());
+            newEdge.setNodeA(nodeA);
+            newEdge.setNodeB(node);
+
+            adjacencyList.get(nodeA.getId()).add(newEdge);
+            adjacencyList.get(node.getId()).add(newEdge);
+
+            // Calculate the Euclidean distance as the weight
+            double distance = calculateEuclideanDistance(nodeA, node);
+            newEdge.setWidth(distance); // Update the edge's width with the calculated distance
+
+            newEdge = new Edge();
+            newEdge.setId(edge.getId());
+            newEdge.setNodeA(nodeB);
+            newEdge.setNodeB(node);
+
+            adjacencyList.get(nodeB.getId()).add(newEdge);
+            adjacencyList.get(node.getId()).add(newEdge);
+
+            // Calculate the Euclidean distance as the weight
+            distance = calculateEuclideanDistance(nodeB, node);
+            newEdge.setWidth(distance); // Update the edge's width with the calculated distance
         }
 
         return adjacencyList;
@@ -96,43 +121,41 @@ public class RouteService {
         Map<Long, Double> distances = new HashMap<>();
         Map<Long, Long> previousNodes = new HashMap<>();
         PriorityQueue<NodeDistance> priorityQueue = new PriorityQueue<>(Comparator.comparingDouble(NodeDistance::getDistance));
-
-        // Initialize distances
-        for (Long nodeId : nodeRepository.findAll().stream().map(Node::getId).toList()) {
+        for (Long nodeId : adjacencyList.keySet()) {
             distances.put(nodeId, Double.MAX_VALUE);
+            previousNodes.put(nodeId, null);
         }
         distances.put(startNodeId, 0.0);
-
         priorityQueue.add(new NodeDistance(startNodeId, 0.0));
 
         Set<Long> visited = new HashSet<>();
 
-while (!priorityQueue.isEmpty()) {
-    NodeDistance current = priorityQueue.poll();
-    Long currentNodeId = current.getNodeId();
+        while (!priorityQueue.isEmpty()) {
+            NodeDistance current = priorityQueue.poll();
+            Long currentNodeId = current.getNodeId();
 
-    // Skip if we've already processed this node with a shorter distance
-    if (visited.contains(currentNodeId)) continue;
-    visited.add(currentNodeId);
+            // Skip if we've already processed this node with a shorter distance
+            if (visited.contains(currentNodeId)) continue;
+            visited.add(currentNodeId);
 
-    if (currentNodeId.equals(destinationNodeId)) {
-        break;
-    }
+            if (currentNodeId.equals(destinationNodeId)) {
+                break;
+            }
 
-    for (Edge edge : adjacencyList.getOrDefault(currentNodeId, Collections.emptyList())) {
-        Long neighborNodeId = edge.getNodeA().getId().equals(currentNodeId)
-            ? edge.getNodeB().getId()
-            : edge.getNodeA().getId();
+            for (Edge edge : adjacencyList.getOrDefault(currentNodeId, Collections.emptyList())) {
+                Long neighborNodeId = edge.getNodeA().getId().equals(currentNodeId)
+                    ? edge.getNodeB().getId()
+                    : edge.getNodeA().getId();
 
-        double newDistance = distances.get(currentNodeId) + edge.getWidth();
+                double newDistance = distances.get(currentNodeId) + edge.getWidth();
 
-        if (newDistance < distances.get(neighborNodeId)) {
-            distances.put(neighborNodeId, newDistance);
-            previousNodes.put(neighborNodeId, currentNodeId);
-            priorityQueue.add(new NodeDistance(neighborNodeId, newDistance));
+                if (newDistance < distances.get(neighborNodeId)) {
+                    distances.put(neighborNodeId, newDistance);
+                    previousNodes.put(neighborNodeId, currentNodeId);
+                    priorityQueue.add(new NodeDistance(neighborNodeId, newDistance));
+                }
+            }
         }
-    }
-}
 
         // Reconstruct the path
         List<Long> path = new ArrayList<>();
