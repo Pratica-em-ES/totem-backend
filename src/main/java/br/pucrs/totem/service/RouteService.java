@@ -10,7 +10,6 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
 
-import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 
 import br.pucrs.totem.entity.Building;
@@ -36,30 +35,38 @@ public class RouteService {
     /**
      * Finds the minimum path to a building and returns an ordered list of node IDs.
      *
-     * @param startNodeId The ID of the starting node.
-     * @param buildingId  The ID of the destination building.
+     * @param startBuildingId The ID of the starting building.
+     * @param destinationBuildingId  The ID of the destination building.
      * @return An ordered list of node IDs representing the shortest path.
      */
-    public List<Long> findMinimumPathToBuilding(Long startNodeId, Long buildingId) {
-
-        Building startBuilding = buildingRepository.findById(startNodeId)
-                .orElseThrow(() -> new IllegalArgumentException("Start building not found"));
+    public List<Long> findMinimumPathToBuilding(Long startBuildingId, Long destinationBuildingId) {
+        // Retrieve the start building
+        Building startBuilding = buildingRepository.findById(startBuildingId)
+                .orElseThrow(() -> new IllegalArgumentException("Start building not found with ID: " + startBuildingId));
 
         // Retrieve the destination building
-        Building destinationBuilding = buildingRepository.findById(buildingId)
-                .orElseThrow(() -> new IllegalArgumentException("Building not found"));
+        Building destinationBuilding = buildingRepository.findById(destinationBuildingId)
+                .orElseThrow(() -> new IllegalArgumentException("Destination building not found with ID: " + destinationBuildingId));
 
-        // Get the destination node from the building
-        Node destinationNode = destinationBuilding.getEdgeNode();
-        if (destinationNode == null) {
-            throw new IllegalArgumentException("Building does not have an associated node");
+        // Get the edge nodes (entry points) from both buildings
+        Node startEdgeNode = startBuilding.getEdgeNode();
+        Node destinationEdgeNode = destinationBuilding.getEdgeNode();
+        
+        if (startEdgeNode == null) {
+            throw new IllegalArgumentException("Start building does not have an associated edge node");
+        }
+        
+        if (destinationEdgeNode == null) {
+            throw new IllegalArgumentException("Destination building does not have an associated edge node");
         }
 
         // Build the graph
         Map<Long, List<Edge>> adjacencyList = buildGraph();
 
         // Find the shortest path using Dijkstra's algorithm
-        return dijkstra(startBuilding.getEdgeNode().getId(), destinationNode.getId(), adjacencyList);
+        List<Long> path = dijkstra(startEdgeNode.getId(), destinationEdgeNode.getId(), adjacencyList);
+
+        return path;
     }
 
     /**
@@ -68,47 +75,55 @@ public class RouteService {
     private Map<Long, List<Edge>> buildGraph() {
         Map<Long, List<Edge>> adjacencyList = new HashMap<>();
 
-        // Load all edges
-        List<Pair<Edge, Node>> pairs = buildingRepository.findAll().stream()
-            .map(building -> Pair.of(building.getEdge(), building.getEdgeNode()))
-            .toList();
+        // Load all edges from the edge repository
+        List<Edge> allEdges = edgeRepository.findAll();
 
-        // Populate the adjacency list
-        for (Pair<Edge, Node> pair : pairs) {
-            Edge edge = pair.getFirst();
-            Node node = pair.getSecond();
-
+        // Build bidirectional adjacency list from actual graph edges
+        // KEEP all original edges - they form the walkable paths
+        for (Edge edge : allEdges) {
             Node nodeA = edge.getNodeA();
             Node nodeB = edge.getNodeB();
+            
+            if (nodeA == null || nodeB == null) {
+                continue;
+            }
 
+            // Initialize adjacency lists for both nodes
             adjacencyList.putIfAbsent(nodeA.getId(), new ArrayList<>());
             adjacencyList.putIfAbsent(nodeB.getId(), new ArrayList<>());
-            adjacencyList.putIfAbsent(node.getId(), new ArrayList<>());
 
-            Edge newEdge;
-            newEdge = new Edge();
-            newEdge.setId(edge.getId());
-            newEdge.setNodeA(nodeA);
-            newEdge.setNodeB(node);
+            // Add edge in both directions (bidirectional graph)
+            adjacencyList.get(nodeA.getId()).add(edge);
+            adjacencyList.get(nodeB.getId()).add(edge);
+        }
 
-            adjacencyList.get(nodeA.getId()).add(newEdge);
-            adjacencyList.get(node.getId()).add(newEdge);
-
-            // Calculate the Euclidean distance as the weight
-            double distance = calculateEuclideanDistance(nodeA, node);
-            newEdge.setWidth(distance); // Update the edge's width with the calculated distance
-
-            newEdge = new Edge();
-            newEdge.setId(edge.getId());
-            newEdge.setNodeA(nodeB);
-            newEdge.setNodeB(node);
-
-            adjacencyList.get(nodeB.getId()).add(newEdge);
-            adjacencyList.get(node.getId()).add(newEdge);
-
-            // Calculate the Euclidean distance as the weight
-            distance = calculateEuclideanDistance(nodeB, node);
-            newEdge.setWidth(distance); // Update the edge's width with the calculated distance
+        // Now connect buildings to the graph via their edge nodes
+        List<Building> allBuildings = buildingRepository.findAll();
+        
+        for (Building building : allBuildings) {
+            Node buildingNode = building.getNode();
+            Node edgeNode = building.getEdgeNode();
+            
+            if (buildingNode == null || edgeNode == null) {
+                continue;
+            }
+            
+            // Simply connect the building to its entry point (edgeNode)
+            // The edgeNode should already be part of an existing edge in the graph
+            Edge buildingConnection = new Edge();
+            buildingConnection.setId(-building.getId()); // Negative ID for virtual edges
+            buildingConnection.setNodeA(buildingNode);
+            buildingConnection.setNodeB(edgeNode);
+            double distance = calculateEuclideanDistance(buildingNode, edgeNode);
+            buildingConnection.setWidth(distance);
+            
+            // Add nodes to adjacency list if not present
+            adjacencyList.putIfAbsent(buildingNode.getId(), new ArrayList<>());
+            adjacencyList.putIfAbsent(edgeNode.getId(), new ArrayList<>());
+            
+            // Add bidirectional connection
+            adjacencyList.get(buildingNode.getId()).add(buildingConnection);
+            adjacencyList.get(edgeNode.getId()).add(buildingConnection);
         }
 
         return adjacencyList;
@@ -118,9 +133,18 @@ public class RouteService {
      * Dijkstra's algorithm to find the shortest path between two nodes.
      */
     private List<Long> dijkstra(Long startNodeId, Long destinationNodeId, Map<Long, List<Edge>> adjacencyList) {
+        // Verify that start and destination nodes exist in the graph
+        if (!adjacencyList.containsKey(startNodeId)) {
+            return Collections.emptyList();
+        }
+        if (!adjacencyList.containsKey(destinationNodeId)) {
+            return Collections.emptyList();
+        }
+        
         Map<Long, Double> distances = new HashMap<>();
         Map<Long, Long> previousNodes = new HashMap<>();
         PriorityQueue<NodeDistance> priorityQueue = new PriorityQueue<>(Comparator.comparingDouble(NodeDistance::getDistance));
+        
         for (Long nodeId : adjacencyList.keySet()) {
             distances.put(nodeId, Double.MAX_VALUE);
             previousNodes.put(nodeId, null);
