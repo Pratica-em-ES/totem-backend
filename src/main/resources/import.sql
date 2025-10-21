@@ -36,7 +36,7 @@ INSERT INTO node (x, y) VALUES (13, -1.5);
 -- id 16
 INSERT INTO node (x, y) VALUES (-13, 28);
 -- id 17
-INSERT INTO node (x, y) VALUES (12, 28);
+INSERT INTO node (x, y) VALUES (13, 28);
 -- id 18
 INSERT INTO node (x, y) VALUES (17, -21);
 -- id 19
@@ -119,6 +119,16 @@ INSERT INTO node (x, y) VALUES (3.19291, 34.543);
 INSERT INTO node (x, y) VALUES (-22.0325, 28.7299);
 -- id 58
 INSERT INTO node (x, y) VALUES (-19.6994, 11.3027);
+-- id 59
+INSERT INTO node (x, y) VALUES (3.1, 28);
+-- id 60
+INSERT INTO node (x, y) VALUES (-13, 21);
+-- id 61
+INSERT INTO node (x, y) VALUES (-13, 10.5);
+-- id 62
+INSERT INTO node (x, y) VALUES (3.2, -1.5);
+-- id 63
+INSERT INTO node (x, y) VALUES (0.7, 13);
 -------------------------------------------------------
 --
 -- Arestas
@@ -139,7 +149,7 @@ INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 12, 13);
 -- id 7
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 14, 15);
 -- id 8
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 17);
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 59);
 -- id 9
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (12, 18, 19);
 -- id 10
@@ -170,6 +180,30 @@ INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 41, 42);
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 42, 43);
 -- id 23
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (4, 43, 44);
+-- id 24
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (1, 29, 59);
+-- id 25
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (1, 20, 60);
+-- id 26
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (1, 24, 61);
+-- id 27
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (1, 26, 62);
+-- id 28
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (1, 27, 63);
+-- id 29
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 12, 17);
+-- id 30
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 8, 17);
+-- id 31
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 59, 17);
+-- id 32
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 59);
+-- id 31
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 60);
+-- id 31
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 9, 60);
+
+
 -------------------------------------------------------
 --
 -- Prédios
