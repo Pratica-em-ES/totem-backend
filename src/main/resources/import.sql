@@ -36,7 +36,7 @@ INSERT INTO node (x, y) VALUES (13, -1.5);
 -- id 16
 INSERT INTO node (x, y) VALUES (-13, 28);
 -- id 17
-INSERT INTO node (x, y) VALUES (12, 28);
+INSERT INTO node (x, y) VALUES (13, 28);
 -- id 18 (REMOVED - merged into node 11, then node 11 merged into node 13)
 INSERT INTO node (x, y) VALUES (0, 0);
 -- id 19 (merged with old node 33)
