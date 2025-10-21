@@ -23,12 +23,12 @@ INSERT INTO node (x, y) VALUES (13, 13);
 INSERT INTO node (x, y) VALUES (-13, 13);
 -- id 10
 INSERT INTO node (x, y) VALUES (-13, -22);
--- id 11
-INSERT INTO node (x, y) VALUES (17.73, -22);
+-- id 11 (REMOVED - merged into node 13)
+INSERT INTO node (x, y) VALUES (0, 0);
 -- id 12
 INSERT INTO node (x, y) VALUES (13, 36);
--- id 13
-INSERT INTO node (x, y) VALUES (13, -20);
+-- id 13 (merged with old node 11)
+INSERT INTO node (x, y) VALUES (13, -22);
 -- id 14
 INSERT INTO node (x, y) VALUES (-13, -1.5);
 -- id 15
@@ -37,10 +37,10 @@ INSERT INTO node (x, y) VALUES (13, -1.5);
 INSERT INTO node (x, y) VALUES (-13, 28);
 -- id 17
 INSERT INTO node (x, y) VALUES (12, 28);
--- id 18
-INSERT INTO node (x, y) VALUES (17, -21);
--- id 19
-INSERT INTO node (x, y) VALUES (17, -29.5);
+-- id 18 (REMOVED - merged into node 11, then node 11 merged into node 13)
+INSERT INTO node (x, y) VALUES (0, 0);
+-- id 19 (merged with old node 33)
+INSERT INTO node (x, y) VALUES (12.77, -30.41);
 -- id 20
 INSERT INTO node (x, y) VALUES (-14, 21);
 -- id 21
@@ -67,18 +67,18 @@ INSERT INTO node (x, y) VALUES (3.1, 32.76);
 INSERT INTO node (x, y) VALUES (-17.95, -11.01);
 -- id 32
 INSERT INTO node (x, y) VALUES (-13.71, -11.11);
--- id 33
-INSERT INTO node (x, y) VALUES (12.77, -30.41);
--- id 34
-INSERT INTO node (x, y) VALUES (11.31, -38.15);
--- id 35
+-- id 33 (REMOVED - merged into node 19)
+INSERT INTO node (x, y) VALUES (0, 0);
+-- id 34 (merged with old node 35)
 INSERT INTO node (x, y) VALUES (11.07, -38.85);
--- id 36
-INSERT INTO node (x, y) VALUES (6.99, -38.85);
+-- id 35 (REMOVED - merged into node 34)
+INSERT INTO node (x, y) VALUES (0, 0);
+-- id 36 (merged with old node 38)
+INSERT INTO node (x, y) VALUES (6.51, -38.57);
 -- id 37
 INSERT INTO node (x, y) VALUES (3.16, -30.6);
--- id 38
-INSERT INTO node (x, y) VALUES (6.51, -38.57);
+-- id 38 (REMOVED - merged into node 36)
+INSERT INTO node (x, y) VALUES (0, 0);
 -- id 39
 INSERT INTO node (x, y) VALUES (4.76, -11);
 -- id 40
@@ -132,16 +132,16 @@ INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 4, 5);
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 6, 7);
 -- id 4
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 8, 9);
--- id 5
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 10, 11);
+-- id 5 (updated: node 11 merged into node 13)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 10, 13);
 -- id 6
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 12, 13);
 -- id 7
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 14, 15);
 -- id 8
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 16, 17);
--- id 9
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (12, 18, 19);
+-- id 9 (updated: node 18 merged into node 11, then node 11 merged into node 13)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (12, 13, 19);
 -- id 10
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 20, 21);
 -- id 11
@@ -156,12 +156,12 @@ INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 27, 28);
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 29, 30);
 -- id 16
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 31, 32);
--- id 17
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 33, 34);
--- id 18
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 35, 36);
--- id 19
-INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 37, 38);
+-- id 17 (updated: node 33 merged into node 19)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 19, 34);
+-- id 18 (updated: node 35 merged into node 34, node 36 unchanged)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 34, 36);
+-- id 19 (updated: node 38 merged into node 36)
+INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 37, 36);
 -- id 20
 INSERT INTO edge (width, node_a_id, node_b_id) VALUES (3, 39, 40);
 -- id 21
