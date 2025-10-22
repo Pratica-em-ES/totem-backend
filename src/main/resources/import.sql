@@ -222,7 +222,7 @@ INSERT INTO building (name, model_path, node_id) VALUES ('94', '/models/94.glb',
 -- id 12
 INSERT INTO building (name, model_path, node_id) VALUES ('93', '/models/93.glb', 30);
 -- id 13
-INSERT INTO building (name, model_path, node_id) VALUES ('92 A', '/models/92a.glb', 57);
+INSERT INTO building (name, model_path, node_id) VALUES ('92 A', '/models/92a.glb', 51);
 -- id 14
 INSERT INTO building (name, model_path, node_id) VALUES ('91 A', '/models/91a.glb', 23);
 -- -------------------------------------------------------
