@@ -33,6 +33,31 @@ public class RouteService {
     }
 
     /**
+     * Finds the minimum path between two nodes and returns an ordered list of node IDs.
+     *
+     * @param startNodeId The ID of the starting node.
+     * @param destinationNodeId The ID of the destination node.
+     * @return An ordered list of node IDs representing the shortest path.
+     */
+    public List<Long> findMinimumPath(Long startNodeId, Long destinationNodeId) {
+        // Verify nodes exist
+        if (!nodeRepository.existsById(startNodeId)) {
+            throw new IllegalArgumentException("Start node not found with ID: " + startNodeId);
+        }
+        if (!nodeRepository.existsById(destinationNodeId)) {
+            throw new IllegalArgumentException("Destination node not found with ID: " + destinationNodeId);
+        }
+
+        // Build the graph
+        Map<Long, List<Edge>> adjacencyList = buildGraph();
+
+        // Find the shortest path using Dijkstra's algorithm
+        List<Long> path = dijkstra(startNodeId, destinationNodeId, adjacencyList);
+
+        return path;
+    }
+
+    /**
      * Finds the minimum path to a building and returns an ordered list of node IDs.
      *
      * @param startBuildingId The ID of the starting building.
