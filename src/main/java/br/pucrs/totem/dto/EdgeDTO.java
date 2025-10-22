@@ -1,39 +1,25 @@
 package br.pucrs.totem.dto;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE, fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class EdgeDTO {
-    private Double width;
-    private NodeDTO nodeA;
-    private NodeDTO nodeB;
+    private Long id;
 
-    public EdgeDTO() {}
+    @JsonProperty("aNodeId")
+    private Long aNodeId;
 
-    public EdgeDTO(Double width, NodeDTO nodeA, NodeDTO nodeB) {
-        this.width = width;
-        this.nodeA = nodeA;
-        this.nodeB = nodeB;
-    }
+    @JsonProperty("bNodeId")
+    private Long bNodeId;
 
-    public Double getWidth() {
-        return width;
-    }
-
-    public void setWidth(Double width) {
-        this.width = width;
-    }
-
-    public NodeDTO getNodeA() {
-        return nodeA;
-    }
-
-    public void setNodeA(NodeDTO nodeA) {
-        this.nodeA = nodeA;
-    }
-
-    public NodeDTO getNodeB() {
-        return nodeB;
-    }
-
-    public void setNodeB(NodeDTO nodeB) {
-        this.nodeB = nodeB;
-    }
+    private Double length;
 }

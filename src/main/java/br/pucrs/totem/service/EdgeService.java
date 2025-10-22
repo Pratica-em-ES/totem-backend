@@ -32,7 +32,7 @@ public class EdgeService {
     public Edge updateEdge(Long id, Edge edgeDetails) {
         return edgeRepository.findById(id)
                 .map(edge -> {
-                    edge.setWidth(edgeDetails.getWidth());
+                    edge.setWeight(edgeDetails.getWeight());
                     edge.setNodeA(edgeDetails.getNodeA());
                     edge.setNodeB(edgeDetails.getNodeB());
                     return edgeRepository.save(edge);

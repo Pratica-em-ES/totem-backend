@@ -7,7 +7,7 @@ public class Edge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Double width;
+    private Double weight;
 
     @ManyToOne
     @JoinColumn(name = "node_a_id")
@@ -25,12 +25,12 @@ public class Edge {
         this.id = id;
     }
 
-    public Double getWidth() {
-        return width;
+    public Double getWeight() {
+        return weight;
     }
 
-    public void setWidth(Double width) {
-        this.width = width;
+    public void setWeight(Double weight) {
+        this.weight = weight;
     }
 
     public Node getNodeA() {

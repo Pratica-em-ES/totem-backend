@@ -48,23 +48,23 @@ public class RouteService {
         Building destinationBuilding = buildingRepository.findById(destinationBuildingId)
                 .orElseThrow(() -> new IllegalArgumentException("Destination building not found with ID: " + destinationBuildingId));
 
-        // Get the edge nodes (entry points) from both buildings
-        Node startEdgeNode = startBuilding.getEdgeNode();
-        Node destinationEdgeNode = destinationBuilding.getEdgeNode();
-        
-        if (startEdgeNode == null) {
-            throw new IllegalArgumentException("Start building does not have an associated edge node");
+        // Get the nodes from both buildings
+        Node startNode = startBuilding.getNode();
+        Node destinationNode = destinationBuilding.getNode();
+
+        if (startNode == null) {
+            throw new IllegalArgumentException("Start building does not have an associated node");
         }
-        
-        if (destinationEdgeNode == null) {
-            throw new IllegalArgumentException("Destination building does not have an associated edge node");
+
+        if (destinationNode == null) {
+            throw new IllegalArgumentException("Destination building does not have an associated node");
         }
 
         // Build the graph
         Map<Long, List<Edge>> adjacencyList = buildGraph();
 
         // Find the shortest path using Dijkstra's algorithm
-        List<Long> path = dijkstra(startEdgeNode.getId(), destinationEdgeNode.getId(), adjacencyList);
+        List<Long> path = dijkstra(startNode.getId(), destinationNode.getId(), adjacencyList);
 
         return path;
     }
@@ -97,34 +97,9 @@ public class RouteService {
             adjacencyList.get(nodeB.getId()).add(edge);
         }
 
-        // Now connect buildings to the graph via their edge nodes
-        List<Building> allBuildings = buildingRepository.findAll();
-        
-        for (Building building : allBuildings) {
-            Node buildingNode = building.getNode();
-            Node edgeNode = building.getEdgeNode();
-            
-            if (buildingNode == null || edgeNode == null) {
-                continue;
-            }
-            
-            // Simply connect the building to its entry point (edgeNode)
-            // The edgeNode should already be part of an existing edge in the graph
-            Edge buildingConnection = new Edge();
-            buildingConnection.setId(-building.getId()); // Negative ID for virtual edges
-            buildingConnection.setNodeA(buildingNode);
-            buildingConnection.setNodeB(edgeNode);
-            double distance = calculateEuclideanDistance(buildingNode, edgeNode);
-            buildingConnection.setWidth(distance);
-            
-            // Add nodes to adjacency list if not present
-            adjacencyList.putIfAbsent(buildingNode.getId(), new ArrayList<>());
-            adjacencyList.putIfAbsent(edgeNode.getId(), new ArrayList<>());
-            
-            // Add bidirectional connection
-            adjacencyList.get(buildingNode.getId()).add(buildingConnection);
-            adjacencyList.get(edgeNode.getId()).add(buildingConnection);
-        }
+        // Buildings are already connected through their nodes
+        // No need to create additional connections since building.getNode()
+        // should already be part of the edge graph
 
         return adjacencyList;
     }
@@ -171,7 +146,7 @@ public class RouteService {
                     ? edge.getNodeB().getId()
                     : edge.getNodeA().getId();
 
-                double newDistance = distances.get(currentNodeId) + edge.getWidth();
+                double newDistance = distances.get(currentNodeId) + edge.getWeight();
 
                 if (newDistance < distances.get(neighborNodeId)) {
                     distances.put(neighborNodeId, newDistance);
@@ -189,15 +164,6 @@ public class RouteService {
         Collections.reverse(path);
 
         return path.isEmpty() || !path.get(0).equals(startNodeId) ? Collections.emptyList() : path;
-    }
-
-    /**
-     * Calculates the Euclidean distance between two nodes.
-     */
-    private double calculateEuclideanDistance(Node nodeA, Node nodeB) {
-        double dx = nodeA.getX() - nodeB.getX();
-        double dy = nodeA.getY() - nodeB.getY();
-        return Math.sqrt(dx * dx + dy * dy);
     }
 
     private static class NodeDistance {

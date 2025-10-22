@@ -43,7 +43,6 @@ public class CompanyService {
         return companyRepository.findById(id)
                 .map(company -> {
                     company.setName(companyDetails.getName());
-                    company.setCategory(companyDetails.getCategory());
                     company.setDescription(companyDetails.getDescription());
                     company.setBuilding(companyDetails.getBuilding());
                     company.setImagePath(companyDetails.getImagePath());
