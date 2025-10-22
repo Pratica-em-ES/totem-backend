@@ -2,12 +2,18 @@ package br.pucrs.totem.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import br.pucrs.totem.dto.BuildingWithNodeDTO;
+import br.pucrs.totem.dto.CategoryDTO;
+import br.pucrs.totem.dto.CompanyDTO;
+import br.pucrs.totem.dto.NodeDTO;
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.BuildingCompany;
 import br.pucrs.totem.entity.Company;
+import br.pucrs.totem.entity.Node;
 import br.pucrs.totem.repository.BuildingCompanyRepository;
 import br.pucrs.totem.repository.BuildingRepository;
 import br.pucrs.totem.repository.CompanyRepository;
@@ -109,5 +115,53 @@ public class CompanyService {
         return buildingCompanyRepository.findByCompanyId(companyId);
     }
 
+    public List<CompanyDTO> getAllCompaniesDTO() {
+        List<Company> companies = companyRepository.findAllOrderByNameAsc();
+        return companies.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
+
+    public Optional<CompanyDTO> getCompanyDTOById(Long id) {
+        return companyRepository.findById(id)
+                .map(this::convertToDTO);
+    }
+
+    private CompanyDTO convertToDTO(Company company) {
+        // Convert categories
+        List<CategoryDTO> categoryDTOs = company.getCategories() != null
+            ? company.getCategories().stream()
+                .map(cc -> new CategoryDTO(cc.getCategory().getId(), cc.getCategory().getName()))
+                .collect(Collectors.toList())
+            : List.of();
+
+        // Get the first building (assuming one company has one main building)
+        BuildingWithNodeDTO buildingDTO = null;
+        List<BuildingCompany> buildingCompanies = buildingCompanyRepository.findByCompanyId(company.getId());
+        if (!buildingCompanies.isEmpty()) {
+            Building building = buildingCompanies.get(0).getBuilding();
+            Node node = building.getNode();
+
+            NodeDTO nodeDTO = node != null
+                ? new NodeDTO(node.getId(), node.getX(), node.getY())
+                : null;
+
+            buildingDTO = new BuildingWithNodeDTO(
+                building.getId(),
+                building.getName(),
+                building.getModelPath(),
+                nodeDTO
+            );
+        }
+
+        return new CompanyDTO(
+            company.getId(),
+            company.getName(),
+            company.getDescription(),
+            company.getImagePath(),
+            buildingDTO,
+            categoryDTOs
+        );
+    }
 
 }

@@ -1,5 +1,6 @@
 package br.pucrs.totem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class Company {
     private String image_path;
 
     @OneToMany(mappedBy = "company")
+    @JsonIgnore
     private List<CategoryCompany> categories;
     
     public Long getId() {
