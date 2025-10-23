@@ -3,6 +3,7 @@ package br.pucrs.totem.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.pucrs.totem.dto.BuildingDTO;
 import br.pucrs.totem.dto.NodeDTO;
@@ -27,7 +28,8 @@ public class MapService {
         this.edgeRepository = edgeRepository;
         this.nodeRepository = nodeRepository;
     }
-    
+
+    @Transactional(readOnly = true)
     public MapDTO getMap() {
         List<Node> nodesList = nodeRepository.findAll();
         List<Edge> edgesList = edgeRepository.findAll();

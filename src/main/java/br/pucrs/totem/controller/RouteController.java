@@ -2,9 +2,7 @@ package br.pucrs.totem.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +13,6 @@ import br.pucrs.totem.service.RouteService;
 
 @RestController
 @RequestMapping("/routes")
-@CrossOrigin(origins = "*")
 public class RouteController {
 
     // @GetMapping("/map/{mapId}")

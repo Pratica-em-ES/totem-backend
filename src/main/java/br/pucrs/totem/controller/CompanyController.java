@@ -13,7 +13,6 @@ import br.pucrs.totem.service.CompanyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/companies")
 @Tag(name = "Companies", description = "Endpoints for managing companies")

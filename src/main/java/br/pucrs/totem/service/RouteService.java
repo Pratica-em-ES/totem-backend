@@ -11,6 +11,7 @@ import java.util.PriorityQueue;
 import java.util.Set;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.Edge;
@@ -39,6 +40,7 @@ public class RouteService {
      * @param destinationNodeId The ID of the destination node.
      * @return An ordered list of node IDs representing the shortest path.
      */
+    @Transactional(readOnly = true)
     public List<Long> findMinimumPath(Long startNodeId, Long destinationNodeId) {
         // Verify nodes exist
         if (!nodeRepository.existsById(startNodeId)) {
@@ -64,6 +66,7 @@ public class RouteService {
      * @param destinationBuildingId  The ID of the destination building.
      * @return An ordered list of node IDs representing the shortest path.
      */
+    @Transactional(readOnly = true)
     public List<Long> findMinimumPathToBuilding(Long startBuildingId, Long destinationBuildingId) {
         // Retrieve the start building
         Building startBuilding = buildingRepository.findById(startBuildingId)

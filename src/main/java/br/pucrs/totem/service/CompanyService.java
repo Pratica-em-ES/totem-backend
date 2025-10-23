@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.pucrs.totem.dto.BuildingWithNodeDTO;
 import br.pucrs.totem.dto.CategoryDTO;
@@ -115,6 +116,7 @@ public class CompanyService {
         return buildingCompanyRepository.findByCompanyId(companyId);
     }
 
+    @Transactional(readOnly = true)
     public List<CompanyDTO> getAllCompaniesDTO() {
         List<Company> companies = companyRepository.findAllOrderByNameAsc();
         return companies.stream()
@@ -122,6 +124,7 @@ public class CompanyService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public Optional<CompanyDTO> getCompanyDTOById(Long id) {
         return companyRepository.findById(id)
                 .map(this::convertToDTO);
