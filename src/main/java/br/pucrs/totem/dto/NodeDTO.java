@@ -1,6 +1,7 @@
 package br.pucrs.totem.dto;
 
 public class NodeDTO {
+    private Long id;
     private Double x;
     private Double y;
 
@@ -10,6 +11,20 @@ public class NodeDTO {
     public NodeDTO(Double x, Double y) {
         this.x = x;
         this.y = y;
+    }
+
+    public NodeDTO(Long id, Double x, Double y) {
+        this.id = id;
+        this.x = x;
+        this.y = y;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Double getX() {

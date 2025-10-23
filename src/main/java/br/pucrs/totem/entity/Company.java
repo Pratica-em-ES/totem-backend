@@ -1,6 +1,8 @@
 package br.pucrs.totem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 public class Company {
@@ -9,13 +11,15 @@ public class Company {
     private Long id;
     @Column(length = 500)
     private String name;
-    @Column(length = 100)
-    private String category;
     @Column(length = 2000)
     private String description;
     @Column(length = 50)
     private String building;
     private String image_path;
+
+    @OneToMany(mappedBy = "company")
+    @JsonIgnore
+    private List<CategoryCompany> categories;
     
     public Long getId() {
         return id;
@@ -31,14 +35,6 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public String getDescription() {
@@ -63,5 +59,13 @@ public class Company {
 
     public void setImagePath(String image_path) {
         this.image_path = image_path;
+    }
+
+    public List<CategoryCompany> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<CategoryCompany> categories) {
+        this.categories = categories;
     }
 }

@@ -1,5 +1,6 @@
 package br.pucrs.totem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -8,13 +9,14 @@ public class CategoryCompany {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
-    
+
     @ManyToOne
     @JoinColumn(name = "company_id", nullable = false)
+    @JsonIgnore
     private Company company;
     
     public CategoryCompany() {}

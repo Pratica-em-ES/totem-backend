@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import br.pucrs.totem.dto.CompanyDTO;
 import br.pucrs.totem.entity.BuildingCompany;
 import br.pucrs.totem.entity.Company;
 import br.pucrs.totem.service.CompanyService;
@@ -26,15 +27,15 @@ public class CompanyController {
 
     @GetMapping
     @Operation(summary = "Get all companies", description = "Retrieve a list of all companies")
-    public ResponseEntity<List<Company>> getAllCompanies() {
-        List<Company> companies = companyService.getAllCompanies();
+    public ResponseEntity<List<CompanyDTO>> getAllCompanies() {
+        List<CompanyDTO> companies = companyService.getAllCompaniesDTO();
         return ResponseEntity.ok(companies);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Get company by ID", description = "Retrieve a specific company by its ID")
-    public ResponseEntity<Company> getCompanyById(@PathVariable Long id) {
-        Optional<Company> company = companyService.getCompanyById(id);
+    public ResponseEntity<CompanyDTO> getCompanyById(@PathVariable Long id) {
+        Optional<CompanyDTO> company = companyService.getCompanyDTOById(id);
         return company.map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

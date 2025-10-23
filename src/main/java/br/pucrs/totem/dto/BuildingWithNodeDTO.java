@@ -1,18 +1,18 @@
 package br.pucrs.totem.dto;
 
-public class BuildingDTO {
+public class BuildingWithNodeDTO {
     private Long id;
     private String name;
     private String modelPath;
-    private Long nodeId;
+    private NodeDTO node;
 
-    public BuildingDTO() {}
+    public BuildingWithNodeDTO() {}
 
-    public BuildingDTO(Long id, String name, String modelPath, Long nodeId) {
+    public BuildingWithNodeDTO(Long id, String name, String modelPath, NodeDTO node) {
         this.id = id;
         this.name = name;
         this.modelPath = modelPath;
-        this.nodeId = nodeId;
+        this.node = node;
     }
 
     public Long getId() {
@@ -39,11 +39,11 @@ public class BuildingDTO {
         this.modelPath = modelPath;
     }
 
-    public Long getNodeId() {
-        return nodeId;
+    public NodeDTO getNode() {
+        return node;
     }
 
-    public void setNodeId(Long nodeId) {
-        this.nodeId = nodeId;
+    public void setNode(NodeDTO node) {
+        this.node = node;
     }
 }
