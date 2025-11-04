@@ -52,6 +52,8 @@ public class CompanyService {
                     company.setName(companyDetails.getName());
                     company.setDescription(companyDetails.getDescription());
                     company.setBuilding(companyDetails.getBuilding());
+                    company.setRoom(companyDetails.getRoom());
+                    company.setFloor(companyDetails.getFloor());
                     company.setImagePath(companyDetails.getImagePath());
                     return companyRepository.save(company);
                 })
@@ -162,6 +164,8 @@ public class CompanyService {
             company.getName(),
             company.getDescription(),
             company.getImagePath(),
+            company.getRoom(),
+            company.getFloor(),
             buildingDTO,
             categoryDTOs
         );
