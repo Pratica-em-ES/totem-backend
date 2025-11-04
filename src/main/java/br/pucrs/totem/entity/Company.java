@@ -15,6 +15,7 @@ public class Company {
     private String description;
     @Column(length = 50)
     private String building;
+    private String block;
     private String room;
     private String floor;
     private String image_path;
@@ -53,6 +54,14 @@ public class Company {
 
     public void setBuilding(String building) {
         this.building = building;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
     }
 
     public String getRoom() {

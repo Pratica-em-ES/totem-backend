@@ -8,6 +8,7 @@ public class CompanyDTO {
     private String description;
     private String imagePath;
     private BuildingWithNodeDTO building;
+    private String block;
     private String room;
     private String floor;
     private List<CategoryDTO> categories;
@@ -15,11 +16,12 @@ public class CompanyDTO {
     public CompanyDTO() {}
 
     public CompanyDTO(Long id, String name, String description, String imagePath,
-                     String room, String floor, BuildingWithNodeDTO building, List<CategoryDTO> categories) {
+                     String block, String room, String floor, BuildingWithNodeDTO building, List<CategoryDTO> categories) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
+        this.block = block;
         this.room = room;
         this.floor = floor;
         this.building = building;
@@ -64,6 +66,14 @@ public class CompanyDTO {
 
     public void setBuilding(BuildingWithNodeDTO building) {
         this.building = building;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
     }
 
     public String getRoom() {
