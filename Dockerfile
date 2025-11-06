@@ -21,9 +21,6 @@ RUN ./mvnw clean package -DskipTests
 # Production stage
 FROM eclipse-temurin:21
 
-# Install curl for healthchecks
-RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
-
 # Create app user
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
@@ -40,5 +37,5 @@ USER appuser
 # Expose port
 EXPOSE 8080
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the application with optimized JVM settings for Cloud Run
+ENTRYPOINT ["java", "-Xmx512m", "-Xms256m", "-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-jar", "app.jar"]
