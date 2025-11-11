@@ -3,233 +3,95 @@
 -- Nós (Nodes)
 --
 -------------------------------------------------------
--- id 1
-INSERT INTO node (x, y) VALUES (0, 0);
--- id 2 (merged with old node 16)
-INSERT INTO node (x, y) VALUES (-13, 28);
--- id 3
-INSERT INTO node (x, y) VALUES (-13, -26);
--- id 4
-INSERT INTO node (x, y) VALUES (31.45, 8.56);
--- id 5
-INSERT INTO node (x, y) VALUES (19, 18.29);
--- id 6
-INSERT INTO node (x, y) VALUES (30, 29);
--- id 7 (REMOVED - merged into node 8)
-INSERT INTO node (x, y) VALUES (0, 0);
--- id 8 (merged with old node 7)
-INSERT INTO node (x, y) VALUES (13, 13);
--- id 9
-INSERT INTO node (x, y) VALUES (-13, 13);
--- id 10
-INSERT INTO node (x, y) VALUES (-13, -22);
--- id 11 (REMOVED - merged into node 13)
-INSERT INTO node (x, y) VALUES (0, 0);
--- id 12
-INSERT INTO node (x, y) VALUES (13, 36);
--- id 13 (merged with old node 11)
-INSERT INTO node (x, y) VALUES (13, -22);
--- id 14
-INSERT INTO node (x, y) VALUES (-13, -1.5);
--- id 15
-INSERT INTO node (x, y) VALUES (13, -1.5);
--- id 16 (REMOVED - merged into node 2)
-INSERT INTO node (x, y) VALUES (0, 0);
--- id 17
-INSERT INTO node (x, y) VALUES (13, 28);
--- id 18 (REMOVED - merged into node 11, then node 11 merged into node 13)
-INSERT INTO node (x, y) VALUES (0, 0);
--- id 19 (merged with old node 33)
-INSERT INTO node (x, y) VALUES (12.77, -30.41);
--- id 20 (merged with old node 60)
-INSERT INTO node (x, y) VALUES (-13, 21);
--- id 21
-INSERT INTO node (x, y) VALUES (-31, 21);
--- id 22
-INSERT INTO node (x, y) VALUES (-31, 30.8);
--- id 23
-INSERT INTO node (x, y) VALUES (-18.66, 10.5);
--- id 24 (merged with old node 61)
-INSERT INTO node (x, y) VALUES (-13, 10.5);
--- id 25
-INSERT INTO node (x, y) VALUES (3.2, 4.58);
--- id 26 (merged with old node 62)
-INSERT INTO node (x, y) VALUES (3.2, -1.5);
--- id 27 (merged with old node 63)
-INSERT INTO node (x, y) VALUES (1.03, 13);
--- id 28
-INSERT INTO node (x, y) VALUES (1.03, 17.37);
--- id 29 (merged with old node 59)
-INSERT INTO node (x, y) VALUES (3.1, 28);
--- id 30
-INSERT INTO node (x, y) VALUES (3.1, 32.76);
--- id 31
-INSERT INTO node (x, y) VALUES (-17.617, -11.01);
--- id 32
-INSERT INTO node (x, y) VALUES (-13, -11.01);
--- id 33 (REMOVED - merged into node 19)
-INSERT INTO node (x, y) VALUES (0, 0);
--- id 34 (merged with old node 35)
-INSERT INTO node (x, y) VALUES (11.07, -38.85);
--- id 35 (REMOVED - merged into node 34)
-INSERT INTO node (x, y) VALUES (0, 0);
--- id 36 (merged with old node 38)
-INSERT INTO node (x, y) VALUES (6.51, -38.57);
--- id 37
-INSERT INTO node (x, y) VALUES (3.16, -30.6);
--- id 38 (REMOVED - merged into node 36)
-INSERT INTO node (x, y) VALUES (0, 0);
--- id 39
-INSERT INTO node (x, y) VALUES (4.76, -11);
--- id 40
-INSERT INTO node (x, y) VALUES (13, -11);
--- id 41
-INSERT INTO node (x, y) VALUES (26.9, -25.08);
--- id 42
-INSERT INTO node (x, y) VALUES (34.52, -33.1);
--- id 43
-INSERT INTO node (x, y) VALUES (35.59, -37.6);
--- id 44
-INSERT INTO node (x, y) VALUES (44.666, -40.07);
--- id 45
-INSERT INTO node (x, y) VALUES (4.19855, 5.92136);
--- id 46
-INSERT INTO node (x, y) VALUES (38.6166, -30.0898);
--- id 47
-INSERT INTO node (x, y) VALUES (24.2656, -25.1045);
--- id 48
-INSERT INTO node (x, y) VALUES (16.5603, 0.00469);
--- id 49
-INSERT INTO node (x, y) VALUES (25.5631, 24.8131);
--- id 50
-INSERT INTO node (x, y) VALUES (29.3427, 8.6717);
--- id 51
-INSERT INTO node (x, y) VALUES (4.19855, -30.0202);
--- id 52
-INSERT INTO node (x, y) VALUES (8.02109, -13.1692);
--- id 53
-INSERT INTO node (x, y) VALUES (-17.617, -8.56175);
--- id 54
-INSERT INTO node (x, y) VALUES (-10.8675, -27.1946);
--- id 55
-INSERT INTO node (x, y) VALUES (4.47708, 18.1663);
--- id 56
-INSERT INTO node (x, y) VALUES (3.19291, 34.543);
--- id 57
-INSERT INTO node (x, y) VALUES (-22.0325, 28.7299);
--- id 58
-INSERT INTO node (x, y) VALUES (-19.6994, 11.3027);
+INSERT INTO node (id, x, y) VALUES (2, -13, 28);
+INSERT INTO node (id, x, y) VALUES (3, -13, -26);
+INSERT INTO node (id, x, y) VALUES (4, 31.45, 8.56);
+INSERT INTO node (id, x, y) VALUES (5, 19, 18.29);
+INSERT INTO node (id, x, y) VALUES (6, 30, 29);
+INSERT INTO node (id, x, y) VALUES (8, 13, 13);
+INSERT INTO node (id, x, y) VALUES (9, -13, 13);
+INSERT INTO node (id, x, y) VALUES (10, -13, -22);
+INSERT INTO node (id, x, y) VALUES (12, 13, 36);
+INSERT INTO node (id, x, y) VALUES (13, 13, -22);
+INSERT INTO node (id, x, y) VALUES (14, -13, -1.5);
+INSERT INTO node (id, x, y) VALUES (15, 13, -1.5);
+INSERT INTO node (id, x, y) VALUES (17, 13, 28);
+INSERT INTO node (id, x, y) VALUES (19, 12.77, -30.41);
+INSERT INTO node (id, x, y) VALUES (20, -13, 21);
+INSERT INTO node (id, x, y) VALUES (21, -31, 21);
+INSERT INTO node (id, x, y) VALUES (22, -31, 30.8);
+INSERT INTO node (id, x, y) VALUES (23, -18.66, 10.5);
+INSERT INTO node (id, x, y) VALUES (24, -13, 10.5);
+INSERT INTO node (id, x, y) VALUES (25, 3.2, 4.58);
+INSERT INTO node (id, x, y) VALUES (26, 3.2, -1.5);
+INSERT INTO node (id, x, y) VALUES (27, 1.03, 13);
+INSERT INTO node (id, x, y) VALUES (28, 1.03, 17.37);
+INSERT INTO node (id, x, y) VALUES (29, 3.1, 28);
+INSERT INTO node (id, x, y) VALUES (30, 3.1, 32.76);
+INSERT INTO node (id, x, y) VALUES (31, -17.617, -11.01);
+INSERT INTO node (id, x, y) VALUES (32, -13, -11.01);
+INSERT INTO node (id, x, y) VALUES (34, 11.07, -38.85);
+INSERT INTO node (id, x, y) VALUES (36, 6.51, -38.57);
+INSERT INTO node (id, x, y) VALUES (37, 3.16, -30.6);
+INSERT INTO node (id, x, y) VALUES (39, 4.76, -11);
+INSERT INTO node (id, x, y) VALUES (40, 13, -11);
+INSERT INTO node (id, x, y) VALUES (41, 26.9, -25.08);
+INSERT INTO node (id, x, y) VALUES (42, 34.52, -33.1);
+INSERT INTO node (id, x, y) VALUES (43, 35.59, -37.6);
+INSERT INTO node (id, x, y) VALUES (44, 44.666, -40.07);
+INSERT INTO node (id, x, y) VALUES (46, 38.6166, -20.0898);
+INSERT INTO node (id, x, y) VALUES (47, 24.2656, -25.1045);
+INSERT INTO node (id, x, y) VALUES (48, 16.5603, 0.00469);
+INSERT INTO node (id, x, y) VALUES (49, 25.5631, 24.8131);
+INSERT INTO node (id, x, y) VALUES (50, 29.3427, 8.6717);
+INSERT INTO node (id, x, y) VALUES (51, -22.0325, 28.7299);
 
 -------------------------------------------------------
 --
 -- Arestas
 --
 -------------------------------------------------------
--- id 1
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 3, 10);
--- id 2
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 10, 13);
--- id 3
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 10, 32);
--- id 4
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 32, 31);
--- id 5
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 32, 14);
--- id 6
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 32, 31);
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 14, 26);
--- id 7
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 26, 25);
--- id 8
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 26, 15);
--- id 9
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 15, 40);
--- id 10
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 40, 39);
--- id 11
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 40, 13);
--- id 12
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 13, 19);
--- id 13
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 19, 34);
--- id 14
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 34, 36);
--- id 15
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 36, 37);
--- id 16
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 13, 41);
--- id 17
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 41, 42);
--- id 18
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 42, 43);
--- id 19
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 43, 44);
--- id 20
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 15, 8);
--- id 21
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 8, 5);
--- id 22
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 5, 6);
--- id 23
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 5, 4);
--- id 24
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 8, 17);
--- id 25
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 17, 12);
--- id 26
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 17, 29);
--- id 27
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 29, 30);
--- id 28
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 2, 29);
--- id 29
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 2, 20);
--- id 30
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 20, 9);
--- id 31
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 9, 24);
--- id 32
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 24, 23);
--- id 33
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 24, 14);
--- id 34
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 9, 27);
--- id 35
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 27, 28);
--- id 36
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 27, 8);
--- id 37
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 20, 21);
--- id 38
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 21, 22);
--- PRÉDIO COM NÓ MAIS PRÓXIMO
--- id 39 - Conectar nó 46 (tecnopuc) ao nó 42
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 46, 42);
--- id 40 - Conectar nó 47 (99 A) ao nó 41
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 13, 47);
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 47, 41);
--- id 41 - Conectar nó 48 (95 A) ao nó 15
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 41, 42);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 42, 43);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 43, 44);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 15, 8);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 8, 5);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 5, 6);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 5, 4);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 8, 17);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 17, 12);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 17, 29);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 29, 30);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 2, 29);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 2, 20);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 20, 9);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 9, 24);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 24, 23);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 24, 14);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 9, 27);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 27, 28);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 27, 8);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 20, 21);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 21, 22);
+INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 22, 51);
 INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 48, 15);
--- id 42 - Conectar nó 49 (97) ao nó 6
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 49, 6);
--- id 43 - Conectar nó 50 (95 C) ao nó 4
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 50, 4);
--- id 44 - Conectar nó 51 (96 A) ao nó 37
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 51, 37);
--- id 45 - Conectar nó 52 (96 B/C/D/F) ao nó 40
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 52, 39);
--- id 46 - Conectar nó 53 (96 J) ao nó 31
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 53, 31);
--- id 47 - Conectar nó 54 (96 E/H/I/G) ao nó 10
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 54, 3);
--- id 48 - Conectar nó 45 (91 B) ao nó 25
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 45, 25);
--- id 49 - Conectar nó 55 (94) ao nó 28
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 55, 28);
--- id 50 - Conectar nó 56 (93) ao nó 30
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 56, 30);
--- id 51 - Conectar nó 57 (92 A) ao nó 22
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 57, 22);
--- id 52 - Conectar nó 58 (91 A) ao nó 23
-INSERT INTO edge (weight, node_a_id, node_b_id) VALUES (3, 58, 23);
 
 
 -------------------------------------------------------
@@ -246,25 +108,25 @@ INSERT INTO building (name, model_path, node_id) VALUES ('95 A', '/models/95A.gl
 -- id 4
 INSERT INTO building (name, model_path, node_id) VALUES ('97', '/models/97.glb', 49);
 -- id 5
-INSERT INTO building (name, model_path, node_id) VALUES ('95 C', '/models/95c.glb', 50);
+INSERT INTO building (name, model_path, node_id) VALUES ('95 C', '/models/95c.glb', 4);
 -- id 6
-INSERT INTO building (name, model_path, node_id) VALUES ('96 A', '/models/96A.glb', 51);
+INSERT INTO building (name, model_path, node_id) VALUES ('96 A', '/models/96A.glb', 37);
 -- id 7
-INSERT INTO building (name, model_path, node_id) VALUES ('96 B/C/D/F', '/models/96bcdf.glb', 52);
+INSERT INTO building (name, model_path, node_id) VALUES ('96 B/C/D/F', '/models/96bcdf.glb', 39);
 -- id 8
-INSERT INTO building (name, model_path, node_id) VALUES ('96 J', '/models/96j.glb', 53);
+INSERT INTO building (name, model_path, node_id) VALUES ('96 J', '/models/96j.glb', 31);
 -- id 9
-INSERT INTO building (name, model_path, node_id) VALUES ('96 E/H/I/G', '/models/96.glb', 54);
+INSERT INTO building (name, model_path, node_id) VALUES ('96 E/H/I/G', '/models/96.glb', 3);
 -- id 10
-INSERT INTO building (name, model_path, node_id) VALUES ('91 B', '/models/91B.glb', 45);
+INSERT INTO building (name, model_path, node_id) VALUES ('91 B', '/models/91B.glb', 25);
 -- id 11
-INSERT INTO building (name, model_path, node_id) VALUES ('94', '/models/94.glb', 55);
+INSERT INTO building (name, model_path, node_id) VALUES ('94', '/models/94.glb', 28);
 -- id 12
-INSERT INTO building (name, model_path, node_id) VALUES ('93', '/models/93.glb', 56);
+INSERT INTO building (name, model_path, node_id) VALUES ('93', '/models/93.glb', 30);
 -- id 13
-INSERT INTO building (name, model_path, node_id) VALUES ('92 A', '/models/92a.glb', 57);
+INSERT INTO building (name, model_path, node_id) VALUES ('92 A', '/models/92a.glb', 51);
 -- id 14
-INSERT INTO building (name, model_path, node_id) VALUES ('91 A', '/models/91a.glb', 58);
+INSERT INTO building (name, model_path, node_id) VALUES ('91 A', '/models/91a.glb', 23);
 -- -------------------------------------------------------
 --
 -- Empresas
