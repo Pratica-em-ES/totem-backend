@@ -15,6 +15,9 @@ public class Company {
     private String description;
     @Column(length = 50)
     private String building;
+    private String block;
+    private String room;
+    private String floor;
     private String image_path;
 
     @OneToMany(mappedBy = "company")
@@ -51,6 +54,30 @@ public class Company {
 
     public void setBuilding(String building) {
         this.building = building;
+    }
+
+    public String getBlock() {
+        return block;
+    }
+
+    public void setBlock(String block) {
+        this.block = block;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public String getFloor() {
+        return floor;
+    }
+
+    public void setFloor(String floor) {
+        this.floor = floor;
     }
 
     public String getImagePath() {
