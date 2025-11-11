@@ -35,3 +35,4 @@ build/
 # envs
 *.env
 .env*
+!.env.example
