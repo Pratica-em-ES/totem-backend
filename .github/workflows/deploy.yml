@@ -52,5 +52,5 @@ jobs:
             --region ${{ env.REGION }} \
             --platform managed \
             --allow-unauthenticated \
-            --set-env-vars SPRING_PROFILES_ACTIVE=prod,DATABASE_URL=${{ secrets.DATABASE_URL }} \
+            --set-env-vars "SPRING_PROFILES_ACTIVE=prod,DATABASE_URL=${{ secrets.DATABASE_URL }}" \
             --quiet
