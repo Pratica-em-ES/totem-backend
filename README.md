@@ -2,15 +2,17 @@
 
 Escolha uma das opções abaixo para rodar o projeto:
 
-## 🐳 Opção 1 - Usando Docker (recomendado)
+## 🐳 Opção 1: Docker
 
 [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
-## ☕ Opção 2 - Modo Dev local (sem Docker)
+## ☕ Opção 2: Modo Dev local com Java
 
 [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
 
 # ▶️ Executando com Docker (Opção 1)
+
+Se você quer rodar com Docker, leia o tutorial abaixo. Se não, pule para a section **"Executando localmente com Java"**.
 
 1. Criar um arquivo .env na raiz do projeto
 
@@ -19,7 +21,7 @@ SPRING_PROFILES_ACTIVE=prod
 DATABASE_URL=jdbc:postgresql://<host>:5432/postgres?user=<usuario>&password=<senha>
 ```
 
-Para acessar o conteúdo que você deve colcoar nesse .env, clique aqui: COLOCAR LINK
+Para acessar o conteúdo que você deve colocar nesse .env, [clique aqui](https://brpucrs-my.sharepoint.com/:w:/r/personal/ashiley_bianca_edu_pucrs_br/Documents/env%20backend.docx?d=w22990f9f2cf24817bfde9c8a29314424&csf=1&web=1&e=0e0mE2) e peça acesso.
 
 2. Iniciar o Docker Desktop
 
@@ -41,7 +43,7 @@ Na primeira execução, isso pode demorar um pouco devido ao download de depend�
 
 Abra o navegador e vá para: [http://localhost:8080](http://localhost:8080)
 
-# ▶️ Executando localmente (Opção 2 - modo dev)
+# ▶️ Executando localmente com Java (Opção 2 - modo dev)
 
 1. Rodar com Maven Wrapper. No terminal, dentro da pasta totem-backend, execute:
 
