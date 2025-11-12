@@ -2,15 +2,20 @@
 
 Escolha uma das opções abaixo para rodar o projeto:
 
-## 🐳 Opção 1: Docker
+# Requisitos
 
-[https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
+Escolha a opção com a qual você deseja rodar a aplicação e instale o que é necessário para essa opção:
 
-## ☕ Opção 2: Modo Dev local com Java
+### 🐳 Opção 1: Docker
 
-[https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
+Instale: [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
 
-# ▶️ Executando com Docker (Opção 1)
+### ☕ Opção 2: Modo Dev local com Java
+
+Instale: [https://www.oracle.com/br/java/technologies/downloads/](https://www.oracle.com/br/java/technologies/downloads/)
+
+
+# Executando com Docker (Opção 1)
 
 Se você quer rodar com Docker, leia o tutorial abaixo. Se não, pule para a section **"Executando localmente com Java"**.
 
@@ -43,7 +48,8 @@ Na primeira execução, isso pode demorar um pouco devido ao download de depend�
 
 Abra o navegador e vá para: [http://localhost:8080](http://localhost:8080)
 
-# ▶️ Executando localmente com Java (Opção 2 - modo dev)
+
+# Executando localmente com Java (Opção 2 - modo dev)
 
 1. Rodar com Maven Wrapper. No terminal, dentro da pasta totem-backend, execute:
 
