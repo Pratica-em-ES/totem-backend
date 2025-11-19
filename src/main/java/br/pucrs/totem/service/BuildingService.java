@@ -28,7 +28,10 @@ public class BuildingService {
     }
 
     public List<Building> getAllBuildings() {
-        return buildingRepository.findAll();
+        return buildingRepository.findAll()
+                .stream()
+                .filter(building -> !building.getName().equalsIgnoreCase("tecnopuc"))
+                .toList();
     }
 
     public Optional<Building> getBuildingById(Long id) {
