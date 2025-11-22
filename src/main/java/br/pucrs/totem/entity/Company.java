@@ -25,6 +25,10 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonIgnore
     private List<CategoryCompany> categories;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JsonIgnore
+    private List<BuildingCompany> buildingCompanies;
     
     public Long getId() {
         return id;
@@ -96,5 +100,13 @@ public class Company {
 
     public void setCategories(List<CategoryCompany> categories) {
         this.categories = categories;
+    }
+
+    public List<BuildingCompany> getBuildingCompanies() {
+        return buildingCompanies;
+    }
+
+    public void setBuildingCompanies(List<BuildingCompany> buildingCompanies) {
+        this.buildingCompanies = buildingCompanies;
     }
 }
