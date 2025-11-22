@@ -45,4 +45,11 @@ public class CategoryController {
         List<Company> companies = categoryService.getCompaniesByCategoryId(id);
         return ResponseEntity.ok(companies);
     }
+
+    @PostMapping
+    @Operation(summary = "Create category", description = "Create a new category")
+    public ResponseEntity<Category> createCategory(@RequestBody Category category) {
+        Category savedCategory = categoryService.saveCategory(category);
+        return ResponseEntity.ok(savedCategory);
+    }
 }

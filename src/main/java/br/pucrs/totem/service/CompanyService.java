@@ -13,10 +13,14 @@ import br.pucrs.totem.dto.CompanyDTO;
 import br.pucrs.totem.dto.NodeDTO;
 import br.pucrs.totem.entity.Building;
 import br.pucrs.totem.entity.BuildingCompany;
+import br.pucrs.totem.entity.Category;
+import br.pucrs.totem.entity.CategoryCompany;
 import br.pucrs.totem.entity.Company;
 import br.pucrs.totem.entity.Node;
 import br.pucrs.totem.repository.BuildingCompanyRepository;
 import br.pucrs.totem.repository.BuildingRepository;
+import br.pucrs.totem.repository.CategoryCompanyRepository;
+import br.pucrs.totem.repository.CategoryRepository;
 import br.pucrs.totem.repository.CompanyRepository;
 
 @Service
@@ -25,13 +29,19 @@ public class CompanyService {
     private final CompanyRepository companyRepository;
     private final BuildingCompanyRepository buildingCompanyRepository;
     private final BuildingRepository buildingRepository;
+    private final CategoryRepository categoryRepository;
+    private final CategoryCompanyRepository categoryCompanyRepository;
 
     public CompanyService(CompanyRepository companyRepository, 
                          BuildingCompanyRepository buildingCompanyRepository, 
-                         BuildingRepository buildingRepository) {
+                         BuildingRepository buildingRepository,
+                         CategoryRepository categoryRepository,
+                         CategoryCompanyRepository categoryCompanyRepository) {
         this.companyRepository = companyRepository;
         this.buildingCompanyRepository = buildingCompanyRepository;
         this.buildingRepository = buildingRepository;
+        this.categoryRepository = categoryRepository;
+        this.categoryCompanyRepository = categoryCompanyRepository;
     }
 
     public List<Company> getAllCompanies() {
@@ -171,6 +181,43 @@ public class CompanyService {
             buildingDTO,
             categoryDTOs
         );
+    }
+
+    @Transactional(readOnly = true)
+    public List<CategoryDTO> getCompanyCategoriesDTO(Long companyId) {
+        List<CategoryCompany> categoryCompanies = categoryCompanyRepository.findByCompanyId(companyId);
+        return categoryCompanies.stream()
+                .map(cc -> new CategoryDTO(cc.getCategory().getId(), cc.getCategory().getName()))
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public boolean addCategoryToCompany(Long companyId, Long categoryId) {
+        Optional<Company> company = companyRepository.findById(companyId);
+        Optional<Category> category = categoryRepository.findById(categoryId);
+        
+        if (company.isPresent() && category.isPresent()) {
+            // Check if the association already exists
+            Optional<CategoryCompany> existingAssociation = categoryCompanyRepository.findByCompanyIdAndCategoryId(companyId, categoryId);
+            
+            if (existingAssociation.isEmpty()) {
+                CategoryCompany categoryCompany = new CategoryCompany(category.get(), company.get());
+                categoryCompanyRepository.save(categoryCompany);
+            }
+            return true;
+        }
+        return false;
+    }
+
+    @Transactional
+    public boolean removeCategoryFromCompany(Long companyId, Long categoryId) {
+        Optional<CategoryCompany> categoryCompany = categoryCompanyRepository.findByCompanyIdAndCategoryId(companyId, categoryId);
+        
+        if (categoryCompany.isPresent()) {
+            categoryCompanyRepository.delete(categoryCompany.get());
+            return true;
+        }
+        return false;
     }
 
 }

@@ -37,4 +37,8 @@ public class CategoryService {
                 .map(CategoryCompany::getCompany)
                 .toList();
     }
+
+    public Category saveCategory(Category category) {
+        return categoryRepository.save(category);
+    }
 }

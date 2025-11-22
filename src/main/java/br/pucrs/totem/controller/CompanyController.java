@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import br.pucrs.totem.dto.CompanyDTO;
+import br.pucrs.totem.dto.CategoryDTO;
 import br.pucrs.totem.entity.BuildingCompany;
 import br.pucrs.totem.entity.Company;
 import br.pucrs.totem.service.CompanyService;
@@ -127,6 +128,37 @@ public class CompanyController {
         Company updatedCompany = companyService.updateCompanyImagePath(id, imagePath);
         if (updatedCompany != null) {
             return ResponseEntity.ok(updatedCompany);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/{id}/categories")
+    @Operation(summary = "Get company categories", description = "Retrieve all categories associated with a company")
+    public ResponseEntity<List<CategoryDTO>> getCompanyCategories(@PathVariable Long id) {
+        List<CategoryDTO> categories = companyService.getCompanyCategoriesDTO(id);
+        return ResponseEntity.ok(categories);
+    }
+
+    @PostMapping("/{id}/categories/{categoryId}")
+    @Operation(summary = "Add category to company", description = "Associate a category with a company")
+    public ResponseEntity<Void> addCategoryToCompany(
+            @PathVariable Long id,
+            @PathVariable Long categoryId) {
+        boolean added = companyService.addCategoryToCompany(id, categoryId);
+        if (added) {
+            return ResponseEntity.ok().build();
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @DeleteMapping("/{id}/categories/{categoryId}")
+    @Operation(summary = "Remove category from company", description = "Remove the association between a company and a category")
+    public ResponseEntity<Void> removeCategoryFromCompany(
+            @PathVariable Long id,
+            @PathVariable Long categoryId) {
+        boolean removed = companyService.removeCategoryFromCompany(id, categoryId);
+        if (removed) {
+            return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
     }
