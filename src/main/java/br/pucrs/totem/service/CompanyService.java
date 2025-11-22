@@ -12,12 +12,10 @@ import br.pucrs.totem.dto.CategoryDTO;
 import br.pucrs.totem.dto.CompanyDTO;
 import br.pucrs.totem.dto.NodeDTO;
 import br.pucrs.totem.entity.Building;
-import br.pucrs.totem.entity.BuildingCompany;
 import br.pucrs.totem.entity.Category;
 import br.pucrs.totem.entity.CategoryCompany;
 import br.pucrs.totem.entity.Company;
 import br.pucrs.totem.entity.Node;
-import br.pucrs.totem.repository.BuildingCompanyRepository;
 import br.pucrs.totem.repository.BuildingRepository;
 import br.pucrs.totem.repository.CategoryCompanyRepository;
 import br.pucrs.totem.repository.CategoryRepository;
@@ -27,18 +25,15 @@ import br.pucrs.totem.repository.CompanyRepository;
 public class CompanyService {
 
     private final CompanyRepository companyRepository;
-    private final BuildingCompanyRepository buildingCompanyRepository;
     private final BuildingRepository buildingRepository;
     private final CategoryRepository categoryRepository;
     private final CategoryCompanyRepository categoryCompanyRepository;
 
     public CompanyService(CompanyRepository companyRepository, 
-                         BuildingCompanyRepository buildingCompanyRepository, 
                          BuildingRepository buildingRepository,
                          CategoryRepository categoryRepository,
                          CategoryCompanyRepository categoryCompanyRepository) {
         this.companyRepository = companyRepository;
-        this.buildingCompanyRepository = buildingCompanyRepository;
         this.buildingRepository = buildingRepository;
         this.categoryRepository = categoryRepository;
         this.categoryCompanyRepository = categoryCompanyRepository;
@@ -89,44 +84,36 @@ public class CompanyService {
     }
 
     public List<Building> getBuildingsByCompanyId(Long companyId) {
-        return buildingCompanyRepository.findByCompanyId(companyId)
-                .stream()
-                .map(BuildingCompany::getBuilding)
-                .toList();
+        Optional<Company> company = companyRepository.findById(companyId);
+        if (company.isPresent() && company.get().getBuilding() != null) {
+            return List.of(company.get().getBuilding());
+        }
+        return List.of();
     }
 
-    public BuildingCompany addBuildingToCompany(Long companyId, Long buildingId, String localization) {
+    public List<Company> getCompaniesByBuildingId(Long buildingId) {
+        return companyRepository.findByBuildingId(buildingId);
+    }
+
+    public boolean setBuildingForCompany(Long companyId, Long buildingId) {
         Optional<Company> company = companyRepository.findById(companyId);
         Optional<Building> building = buildingRepository.findById(buildingId);
         if (company.isPresent() && building.isPresent()) {
-            BuildingCompany buildingCompany = new BuildingCompany();
-            buildingCompany.setCompany(company.get());
-            buildingCompany.setBuilding(building.get());
-            buildingCompany.setLocalization(localization);
-            return buildingCompanyRepository.save(buildingCompany);
-        }
-        return null;
-    }
-
-    public BuildingCompany updateCompanyBuilding(Long buildingCompanyId, String localization) {
-        return buildingCompanyRepository.findById(buildingCompanyId)
-                .map(buildingCompany -> {
-                    buildingCompany.setLocalization(localization);
-                    return buildingCompanyRepository.save(buildingCompany);
-                })
-                .orElse(null);
-    }
-
-    public boolean deleteCompanyBuilding(Long buildingCompanyId) {
-        if (buildingCompanyRepository.existsById(buildingCompanyId)) {
-            buildingCompanyRepository.deleteById(buildingCompanyId);
+            company.get().setBuilding(building.get());
+            companyRepository.save(company.get());
             return true;
         }
         return false;
     }
 
-    public List<BuildingCompany> getCompanyBuildings(Long companyId) {
-        return buildingCompanyRepository.findByCompanyId(companyId);
+    public boolean removeBuildingFromCompany(Long companyId) {
+        Optional<Company> company = companyRepository.findById(companyId);
+        if (company.isPresent()) {
+            company.get().setBuilding(null);
+            companyRepository.save(company.get());
+            return true;
+        }
+        return false;
     }
 
     @Transactional(readOnly = true)
@@ -151,11 +138,10 @@ public class CompanyService {
                 .collect(Collectors.toList())
             : List.of();
 
-        // Get the first building (assuming one company has one main building)
+        // Get the building for this company
         BuildingWithNodeDTO buildingDTO = null;
-        List<BuildingCompany> buildingCompanies = buildingCompanyRepository.findByCompanyId(company.getId());
-        if (!buildingCompanies.isEmpty()) {
-            Building building = buildingCompanies.get(0).getBuilding();
+        if (company.getBuilding() != null) {
+            Building building = company.getBuilding();
             Node node = building.getNode();
 
             NodeDTO nodeDTO = node != null

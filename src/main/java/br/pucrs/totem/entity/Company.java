@@ -13,20 +13,18 @@ public class Company {
     private String name;
     @Column(length = 2000)
     private String description;
-    @Column(length = 50)
-    private String building;
     private String block;
     private String room;
     private String floor;
     private String image_path;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, orphanRemoval = true)
-    @JsonIgnore
-    private List<CategoryCompany> categories;
+    @ManyToOne
+    @JoinColumn(name = "building_id")
+    private Building building;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonIgnore
-    private List<BuildingCompany> buildingCompanies;
+    private List<CategoryCompany> categories;
     
     public Long getId() {
         return id;
@@ -52,11 +50,11 @@ public class Company {
         this.description = description;
     }
 
-    public String getBuilding() {
+    public Building getBuilding() {
         return building;
     }
 
-    public void setBuilding(String building) {
+    public void setBuilding(Building building) {
         this.building = building;
     }
 
@@ -98,13 +96,5 @@ public class Company {
 
     public void setCategories(List<CategoryCompany> categories) {
         this.categories = categories;
-    }
-
-    public List<BuildingCompany> getBuildingCompanies() {
-        return buildingCompanies;
-    }
-
-    public void setBuildingCompanies(List<BuildingCompany> buildingCompanies) {
-        this.buildingCompanies = buildingCompanies;
     }
 }
