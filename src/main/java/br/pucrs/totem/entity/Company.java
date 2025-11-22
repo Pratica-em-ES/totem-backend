@@ -13,14 +13,16 @@ public class Company {
     private String name;
     @Column(length = 2000)
     private String description;
-    @Column(length = 50)
-    private String building;
     private String block;
     private String room;
     private String floor;
     private String image_path;
 
-    @OneToMany(mappedBy = "company")
+    @ManyToOne
+    @JoinColumn(name = "building_id")
+    private Building building;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JsonIgnore
     private List<CategoryCompany> categories;
     
@@ -48,11 +50,11 @@ public class Company {
         this.description = description;
     }
 
-    public String getBuilding() {
+    public Building getBuilding() {
         return building;
     }
 
-    public void setBuilding(String building) {
+    public void setBuilding(Building building) {
         this.building = building;
     }
 

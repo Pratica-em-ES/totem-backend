@@ -6,9 +6,10 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import br.pucrs.totem.dto.CompanyDTO;
 import br.pucrs.totem.entity.Building;
-import br.pucrs.totem.entity.BuildingCompany;
 import br.pucrs.totem.service.BuildingService;
+import br.pucrs.totem.service.CompanyService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -19,9 +20,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 public class BuildingController {
 
     private final BuildingService buildingService;
+    private final CompanyService companyService;
 
-    public BuildingController(BuildingService buildingService) {
+    public BuildingController(BuildingService buildingService, CompanyService companyService) {
         this.buildingService = buildingService;
+        this.companyService = companyService;
     }
 
     @GetMapping
@@ -68,46 +71,11 @@ public class BuildingController {
 
     @GetMapping("/{id}/companies")
     @Operation(summary = "Get building companies", description = "Retrieve all companies associated with a building")
-    public ResponseEntity<List<BuildingCompany>> getBuildingCompanies(@PathVariable Long id) {
-        List<BuildingCompany> companies = buildingService.getBuildingCompanies(id);
+    public ResponseEntity<List<CompanyDTO>> getBuildingCompanies(@PathVariable Long id) {
+        List<CompanyDTO> companies = companyService.getCompaniesByBuildingId(id)
+                .stream()
+                .map(company -> companyService.getCompanyDTOById(company.getId()).get())
+                .toList();
         return ResponseEntity.ok(companies);
-    }
-
-    @PostMapping("/{id}/companies")
-    @Operation(summary = "Add company to building", description = "Associate a company with a building")
-    public ResponseEntity<BuildingCompany> addCompanyToBuilding(
-            @PathVariable Long id,
-            @RequestParam Long companyId,
-            @RequestParam(required = false) String localization) {
-        BuildingCompany buildingCompany = buildingService.addCompanyToBuilding(id, companyId, localization);
-        if (buildingCompany != null) {
-            return ResponseEntity.ok(buildingCompany);
-        }
-        return ResponseEntity.badRequest().build();
-    }
-
-    @PutMapping("/{id}/companies/{buildingCompanyId}")
-    @Operation(summary = "Update building company", description = "Update the localization information for a building company association")
-    public ResponseEntity<BuildingCompany> updateBuildingCompany(
-            @PathVariable Long id,
-            @PathVariable Long buildingCompanyId,
-            @RequestParam String localization) {
-        BuildingCompany updatedBuildingCompany = buildingService.updateBuildingCompany(buildingCompanyId, localization);
-        if (updatedBuildingCompany != null) {
-            return ResponseEntity.ok(updatedBuildingCompany);
-        }
-        return ResponseEntity.notFound().build();
-    }
-
-    @DeleteMapping("/{id}/companies/{buildingCompanyId}")
-    @Operation(summary = "Remove company from building", description = "Remove the association between a building and a company")
-    public ResponseEntity<Void> deleteBuildingCompany(
-            @PathVariable Long id,
-            @PathVariable Long buildingCompanyId) {
-        boolean deleted = buildingService.deleteBuildingCompany(buildingCompanyId);
-        if (deleted) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.notFound().build();
     }
 }
