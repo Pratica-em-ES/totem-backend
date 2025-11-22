@@ -12,10 +12,12 @@ import br.pucrs.totem.dto.CategoryDTO;
 import br.pucrs.totem.dto.CompanyDTO;
 import br.pucrs.totem.dto.NodeDTO;
 import br.pucrs.totem.entity.Building;
+import br.pucrs.totem.entity.BuildingCompany;
 import br.pucrs.totem.entity.Category;
 import br.pucrs.totem.entity.CategoryCompany;
 import br.pucrs.totem.entity.Company;
 import br.pucrs.totem.entity.Node;
+import br.pucrs.totem.repository.BuildingCompanyRepository;
 import br.pucrs.totem.repository.BuildingRepository;
 import br.pucrs.totem.repository.CategoryCompanyRepository;
 import br.pucrs.totem.repository.CategoryRepository;
@@ -28,15 +30,18 @@ public class CompanyService {
     private final BuildingRepository buildingRepository;
     private final CategoryRepository categoryRepository;
     private final CategoryCompanyRepository categoryCompanyRepository;
+    private final BuildingCompanyRepository buildingCompanyRepository;
 
     public CompanyService(CompanyRepository companyRepository, 
                          BuildingRepository buildingRepository,
                          CategoryRepository categoryRepository,
-                         CategoryCompanyRepository categoryCompanyRepository) {
+                         CategoryCompanyRepository categoryCompanyRepository,
+                         BuildingCompanyRepository buildingCompanyRepository) {
         this.companyRepository = companyRepository;
         this.buildingRepository = buildingRepository;
         this.categoryRepository = categoryRepository;
         this.categoryCompanyRepository = categoryCompanyRepository;
+        this.buildingCompanyRepository = buildingCompanyRepository;
     }
 
     public List<Company> getAllCompanies() {
@@ -75,9 +80,26 @@ public class CompanyService {
                 .orElse(null);
     }
 
+    @Transactional
     public boolean deleteCompany(Long id) {
-        if (companyRepository.existsById(id)) {
-            companyRepository.deleteById(id);
+        Optional<Company> company = companyRepository.findById(id);
+        if (company.isPresent()) {
+            Company companyToDelete = company.get();
+            
+            // Remove all building associations first
+            List<BuildingCompany> buildingCompanies = companyToDelete.getBuildingCompanies();
+            if (buildingCompanies != null && !buildingCompanies.isEmpty()) {
+                buildingCompanies.clear();
+            }
+            
+            // Remove all category associations
+            List<CategoryCompany> categories = companyToDelete.getCategories();
+            if (categories != null && !categories.isEmpty()) {
+                categories.clear();
+            }
+            
+            // Delete the company
+            companyRepository.delete(companyToDelete);
             return true;
         }
         return false;
